@@ -1,0 +1,8 @@
+@function col ($n) {
+  @return 100% / 12 * $n;
+}
+
+@function push ($n) {
+  @if ($n == 0) { @return 0; }
+  @return col($n);
+}

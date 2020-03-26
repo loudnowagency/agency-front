@@ -1,0 +1,16 @@
+<svg class="sierpinski-frame" width="597" height="517" viewBox="0 0 597 517" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path class="" d="M0.866036 516.5L298.5 0.999983L596.134 516.5H0.866036Z" stroke="currentColor" stroke-opacity="0.1"/>
+  <rect class="" x="296" width="5" height="5" fill="currentColor"/>
+  <line class="" x1="301" y1="2.5" x2="326" y2="2.5" stroke="currentColor"/>
+  <rect class="" x="325.5" y="0.5" width="4" height="4" stroke="currentColor"/>
+
+  <rect class="" x="346.583" y="1" width="5.89286" height="1.30952" fill="currentColor"/>
+  <rect class="" x="342" y="2.96423" width="7.20238" height="1.30952" fill="currentColor"/>
+  <rect class="" x="351.167" y="2.96423" width="10.4762" height="1.30952" fill="currentColor"/>
+  <rect class="" x="362.952" y="2.96423" width="16.369" height="1.30952" fill="currentColor"/>
+  <rect class="" x="353.786" y="1" width="11.131" height="1.30952" fill="currentColor"/>
+  <rect class="" x="366.226" y="1" width="11.7857" height="1.30952" fill="currentColor"/>
+  <rect class="" x="379.321" y="1" width="13.0952" height="1.30952" fill="currentColor"/>
+  <rect class="" x="394.381" y="1" width="2.61905" height="1.30952" fill="currentColor"/>
+  <rect class="" x="342" y="1" width="3.27381" height="1.30952" fill="currentColor"/>
+</svg>

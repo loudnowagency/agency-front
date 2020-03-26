@@ -1,0 +1,15 @@
+@import '@/assets/styles/fonts/dharma_bold.scss';
+@import '@/assets/styles/fonts/share_tech.scss';
+
+html {
+  font-size: 16px;
+  background-color: $bg-1;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.noscroll {
+  overflow: hidden;
+}

@@ -1,0 +1,42 @@
+{
+  "name": "agency-fe",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Maki <loudnownet@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@znck/prop-types": "^0.6.3",
+    "lazy-hydration": "^1.0.4",
+    "lazysizes": "^5.2.2",
+    "lodash": "^4.17.15",
+    "nuxt": "^2.0.0",
+    "popmotion": "^8.7.3",
+    "stylefire": "^7.0.3",
+    "vue-inline-svg": "^1.3.1",
+    "vue-lazy-hydration": "^1.0.0-beta.12",
+    "vue-lazyload": "^1.3.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-analytics": "^2.3.0",
+    "@nuxtjs/router": "^1.5.0",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.13.1",
+    "nuxt-svg-loader": "^1.2.0",
+    "sass-loader": "^8.0.2",
+    "vue-svg-inline-loader": "^1.5.0"
+  }
+}
