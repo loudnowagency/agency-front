@@ -1,6 +1,6 @@
-# agency-fe
+# Loud Now Agency Homepage
 
-> Nuxt.js project
+![loudnowagency](https://user-images.githubusercontent.com/4959890/85725156-2576b200-b6f5-11ea-887f-6db1ea87f170.png)
 
 ## Build Setup
 
