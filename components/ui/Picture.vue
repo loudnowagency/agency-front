@@ -17,7 +17,7 @@ export default {
   computed: {
     cdnSrc() {
       const cdnUrl = 'https://ankkxsjjn.cloudimg.io/v7'
-      const prodHost = '/agency-perf.loudnow.vercel.app'
+      const prodHost = '/loudnow.agency'
       const options = '?force_format=webp'
       return  cdnUrl + prodHost + this.src + options
     },
