@@ -48,6 +48,9 @@ module.exports = {
       }
     }
   },
+  server: {
+    host: '0.0.0.0',
+  },
   buildModules: [
     '@nuxtjs/pwa',
     ['@nuxtjs/google-analytics', {
