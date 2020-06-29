@@ -40,6 +40,8 @@ export default {
   font-family: $font-tech;
   text-transform: uppercase;
   white-space: nowrap;
+  height: 50px;
+  flex-shrink: 0;
 
   &:hover .background { opacity: .1; }
 
@@ -92,7 +94,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 100%;
   padding-left: 50px;
   padding-right: 50px;
 }
