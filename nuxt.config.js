@@ -53,13 +53,6 @@ module.exports = {
   },
   buildModules: [
     '@nuxtjs/pwa',
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-170791558-1',
-      set: [
-        { field: 'storage', value: 'none' },
-        { field: 'anonymizeIp', value: true },
-      ],
-    }],
   ],
   /*
   ** Global scss modules, mixins, functions etc
@@ -69,6 +62,7 @@ module.exports = {
   ],
 
   plugins: [
+    '@/plugins/analytics.js',
     '@/plugins/directives.js',
     '@/plugins/route.js',
     '@/plugins/vue-lazysizes.client.js',
