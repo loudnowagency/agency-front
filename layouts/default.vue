@@ -1,27 +1,24 @@
 <template>
   <div :class="`theme-${theme}`">
-    <!-- <LazyHydrate ssr-only> -->
-      <div class="layout c-bg1 c-t1 t4">
-        <div class="layout__start"></div>
-        <Navbar class="layout__navbar" />
-        <div
-          class="layout__main"
-          :class="{'-blur': isNavOpen}">
-          <nuxt/>
-        </div>
+    <div class="layout c-bg1 c-t1 t4">
+      <div class="layout__start"></div>
+      <Navbar class="layout__navbar" />
+      <div
+        class="layout__main"
+        :class="{'-blur': isNavOpen}">
+        <nuxt/>
       </div>
-    <!-- </LazyHydrate> -->
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import LazyHydrate from 'vue-lazy-hydration'
 import Navbar from '@/components/Navbar'
 
 export default {
   name: 'Layout',
-  components: { Navbar, LazyHydrate },
+  components: { Navbar },
   computed: {
     ...mapState('ui', ['theme', 'isNavOpen']),
   },
@@ -37,13 +34,6 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '@/assets/styles/reset.scss';
-  @import '@/assets/styles/globals.scss';
-  @import '@/assets/styles/utils.scss';
-  @import '@/assets/styles/transitions.scss';
-</style>
 
 <style lang="scss" scoped>
 .theme-light {
