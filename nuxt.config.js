@@ -10,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'We help forward-thinking companies to build digital experiences.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ],
   },
   /*
