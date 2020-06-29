@@ -12,4 +12,5 @@ dist
 
 .vercel
 
-sw.*
+static/sw.js
+
