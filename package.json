@@ -1,8 +1,8 @@
 {
-  "name": "agency-fe",
+  "name": "loud-now-agency-homepage",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "Maki <loudnownet@gmail.com>",
+  "description": "Loud Now Agency site - https://loudnow.agency",
+  "author": "Loud Now Agency <hi@loudnow.agency>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
