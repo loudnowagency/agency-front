@@ -28,6 +28,13 @@ module.exports = {
   */
   build: {
     // extractCSS: true,
+
+    filenames: {
+      app: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
+      css: ({ isDev }) => isDev ? '[name].js' : '[name].[contenthash].css',
+    },
+
     extend (config, { isDev, isClient, loaders: { vue } }) {
       /*
       ** Run ESLint on save
@@ -49,9 +56,11 @@ module.exports = {
       }
     }
   },
+
   server: {
     host: '0.0.0.0',
   },
+
   buildModules: [
     '@nuxtjs/pwa',
     ['@nuxtjs/google-analytics', {
