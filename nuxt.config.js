@@ -55,8 +55,10 @@ module.exports = {
     '@nuxtjs/pwa',
     ['@nuxtjs/google-analytics', {
       id: 'UA-170791558-1',
-      storage: 'none',
-      anonymizeIp: true,
+      set: [
+        { field: 'storage', value: 'none' },
+        { field: 'anonymizeIp', value: true },
+      ],
     }],
   ],
   /*
