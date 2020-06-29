@@ -10,7 +10,5 @@ npm-debug.log
 # Nuxt generate
 dist
 
-.vercel
-
+# Static
 static/sw.js
-
