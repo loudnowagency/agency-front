@@ -7,10 +7,10 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'We help forward-thinking companies to build digital experiences.' }
+      { hid: 'description', name: 'description', content: 'We help forward-thinking companies to build digital experiences.' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
     ],
   },
   /*
@@ -27,6 +27,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    // extractCSS: true,
     extend (config, { isDev, isClient, loaders: { vue } }) {
       /*
       ** Run ESLint on save
@@ -36,7 +37,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
       /*
@@ -53,6 +54,11 @@ module.exports = {
   },
   buildModules: [
     '@nuxtjs/pwa',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-170791558-1',
+      storage: 'none',
+      anonymizeIp: true,
+    }],
   ],
   /*
   ** Global scss modules, mixins, functions etc
@@ -62,7 +68,6 @@ module.exports = {
   ],
 
   plugins: [
-    '@/plugins/analytics.js',
     '@/plugins/directives.js',
     '@/plugins/route.js',
     '@/plugins/vue-lazysizes.client.js',
@@ -75,6 +80,13 @@ module.exports = {
       '@/assets/styles/functions.scss',
     ],
   },
+
+  css: [
+    '@/assets/styles/reset.scss',
+    '@/assets/styles/globals.scss',
+    '@/assets/styles/utils.scss',
+    '@/assets/styles/transitions.scss',
+  ],
 
   pwa: {
     manifest: {
@@ -94,6 +106,6 @@ module.exports = {
       } else {
         return { x: 0, y: 0 }
       }
-    }
+    },
   },
 }
