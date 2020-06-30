@@ -8,7 +8,9 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "serve": "nuxt serve",
     "generate": "nuxt generate",
+    "export": "nuxt build --target static && nuxt export",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
@@ -18,7 +20,7 @@
     "lazy-hydration": "^1.0.4",
     "lazysizes": "^5.2.2",
     "lodash": "^4.17.15",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.13.2",
     "popmotion": "^8.7.3",
     "stylefire": "^7.0.3",
     "vue-inline-svg": "^1.3.1",
