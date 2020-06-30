@@ -6,7 +6,7 @@
             class="services__header"
             layout="2"
             tag1="Services"
-            tag2="What We Offer?"
+            tag2="What We Offer"
             :headline="`We plan, build and deliver digital experiences.`" />
         </Hydrate>
         <Hydrate ssr-only>
