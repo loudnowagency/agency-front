@@ -63,11 +63,11 @@ module.exports = {
 
   buildModules: [
     '@nuxtjs/pwa',
-    // ['@nuxtjs/google-analytics', {
-    //   id: 'UA-170791558-1',
-    //   storage: 'none',
-    //   anonymizeIp: true,
-    // }],
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-170791558-1',
+      // storage: 'none',
+      // anonymizeIp: true,
+    }],
   ],
   /*
   ** Global scss modules, mixins, functions etc
