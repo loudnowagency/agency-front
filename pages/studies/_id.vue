@@ -85,39 +85,6 @@ const studies = {
     nextProjectLogo: 'dale-carnegie.svg',
     nextClientLogo: 'ds.svg',
     nextFeaturedTheme: 'light',
-    nextLink: '/studies/dale-carnegie',
-  },
-  'dale-carnegie': {
-    currentFeaturedImage: 'case-study-dc.jpg',
-    currentProjectLogo: 'dale-carnegie.svg',
-    currentClientLogo: 'ds.svg',
-    currentFeaturedTheme: 'light',
-    pageHeader: 'Dale Carnegie Online Platform',
-    whatWeDid: [
-      {
-        headline: 'Frontend',
-        copy: 'Designs turned into pixel perfect implementation. Modern browser features with graceful degradation. Responsive and performant by default, etc.',
-      }, {
-        headline: 'Backend',
-        copy: 'Craft and Craft eCommerce integration. API services for extensive communication with the browser. Complex internationalization, etc.',
-      }, {
-        headline: 'Accessibility',
-        copy: 'Deep optimisations for persons with diabilities. Keybard and screen reader navigation, color contrast, reducing user click paths, etc.',
-      },
-    ],
-    screenshot: '/images/screen-dale.jpg',
-    url: 'https://dalecarnegie.com',
-    headline: 'A challenge to leave a footprint on the most influential personal training.',
-    headlineAuthor: '',
-    copy: [
-      'A rich history and a proven, innovative process has connected Dale Carnegie training to people around the world seeking real transformation and impactful results.',
-      'We took part in a global modernization of this 108-year-old brand started by one of the best selling authors of all time. Our team was responsible for developing the new Dale Carnegie’s online infrastructure. The system manages over 200 franchises across more than 50 countries. Each entity is interconnected with an ecommerce platform that supports sales of their online and in-person training programs.',
-      'Loud Now Agency teamed up with Digital Surgeons again to help them deliver an upgraded digital experience for the Dale Carengie\'s clients. Our base for the platform was Craft CMS with its eCommerce module. We commited heavy work on top of it for API development and internationalization. Our frontend work on accesbility to support blind users was the ultimate cherry on top of it.',
-    ],
-    nextFeaturedImage: 'case-study-jupiter.jpg',
-    nextProjectLogo: 'jupiter.svg',
-    nextClientLogo: 'artbees.svg',
-    nextFeaturedTheme: 'dark',
     nextLink: '/studies/jupiter',
   },
   'jupiter': {

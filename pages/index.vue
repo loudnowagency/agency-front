@@ -16,14 +16,6 @@
             link: '/studies/rolling-stone'
           },
           {
-            bg: 'case-study-dc.jpg',
-            clientLogo: 'ds.svg',
-            projectLogo: 'dale-carnegie.svg',
-            theme: 'light',
-            buttonText: 'See What We Did',
-            link: '/studies/dale-carnegie'
-          },
-          {
             bg: 'case-study-jupiter.jpg',
             clientLogo: 'artbees.svg',
             projectLogo: 'jupiter.svg',
