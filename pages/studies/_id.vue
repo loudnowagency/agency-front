@@ -56,6 +56,7 @@ import Footer from '@/components/Footer'
 
 const studies = {
   'rolling-stone': {
+    name: 'Rolling Stone',
     currentFeaturedImage: 'case-study-rs.jpg',
     currentProjectLogo: 'rolling-stone.svg',
     currentClientLogo: 'xwp.svg',
@@ -88,6 +89,7 @@ const studies = {
     nextLink: '/studies/jupiter',
   },
   'jupiter': {
+    name: 'Jupiter',
     currentFeaturedImage: 'case-study-jupiter.jpg',
     currentProjectLogo: 'jupiter.svg',
     currentClientLogo: 'artbees.svg',
@@ -129,7 +131,7 @@ export default {
   },
   head () {
     return {
-      title: this.pageHeader,
+      title: `${this.name} - ${this.pageHeader} | Loud Now Agency`,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         { hid: 'description', name: 'description', content: this.headline },

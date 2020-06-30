@@ -59,6 +59,11 @@ import Footer from '@/components/Footer'
 
 export default {
   name: 'Studies',
+  head () {
+    return {
+      title: 'Our Work - Loud Now Agency',
+    }
+  },
   transition: {
     name: 'trans-page-from-bottom',
     mode: 'in-out',

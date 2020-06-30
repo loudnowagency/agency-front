@@ -51,6 +51,11 @@ import Footer from '@/components/Footer'
 
 export default {
   name: 'ServicesPage',
+  head () {
+    return {
+      title: 'Services - Loud Now Agency',
+    }
+  },
   transition: {
     name: 'trans-page-from-bottom',
     mode: 'in-out',

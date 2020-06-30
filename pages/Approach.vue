@@ -58,6 +58,11 @@ import Footer from '@/components/Footer'
 
 export default {
   name: 'Approach',
+  head () {
+    return {
+      title: 'Approach - Loud Now Agency',
+    }
+  },
   transition: {
     name: 'trans-page-from-bottom',
     mode: 'in-out',

@@ -8,6 +8,17 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'We help forward-thinking companies build digital experiences.' },
+      // Twitter Card
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:title', content: 'Loud Now Agency'},
+      {name: 'twitter:description', content: 'We help forward-thinking companies build digital experiences.'},
+      {name: 'twitter:image', content: 'https://loudnow.agency/icon.png'},
+      // Facebook OpenGraph
+      {property: 'og:title', content: 'Loud Now Agency'},
+      {property: 'og:site_name', content: 'Loud Now Agency'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:image', content:  'https://loudnow.agency/social-cover.png'},
+      {property: 'og:description', content: 'We help forward-thinking companies build digital experiences.'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
