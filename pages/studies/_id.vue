@@ -110,7 +110,7 @@ const studies = {
     screenshot: '/images/screen-jupiter.jpg',
     url: 'https://jupiter.artbees.net',
     headline: '"The outcome was extremely rewarding: many of our clients reported a more than 50% improvement in speed and performance."',
-    headlineAuthor: 'Bob Ulusoy - Chief Product Officer at Artbees',
+    headlineAuthor: 'Babak Azimzadeh - Chief Technology Officer at Artbees',
     copy: [
       'Jupiter is one of the best selling WordPress themes. It\'s top rated and selling on ThemeForest where it earned market recognition and users love.',
       'Loud Now Agency joined Artbees to help them get their product back on high performance track. After deep analysis of UX issues we discovered key areas to focus our development on. These included product architecture, optimizing critical rendering path and dead code elimination. All these points were overlaping but served different purposes. We split monolitic architecture into smaller pieces to enable us to lazy load components. This led into siginifficat improvements in optimization of initial pageload which was additionally supported by deferring offscreen images. We also reduced assets\' bundlesize by eliminating pieces not requested by the browser: switching from icon fonts to single svgs, client side use of Requirejs for dependency management, etc.',

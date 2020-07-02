@@ -116,8 +116,8 @@ export default {
         {
           logo: 'artbees.svg',
           picture: 'testimonial-bob.jpg',
-          author: 'Bob Ulusoy',
-          role: 'Chief Product Officer',
+          author: 'Babak Azimzadeh',
+          role: 'Chief Technology Officer',
           headline: 'Artbees recommends Loud Now as an expert in its field, and we are looking forward to working with them in the near future.',
           copy: [
             'My experience with Loud Now dates back to 2016 when we had some major challenges with our flagship WordPress theme called Jupiter. Making changes for a WP theme that powered hundreds of thousands of sites was a daunting task. But they have made several fundamental changes to our product.',
