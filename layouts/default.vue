@@ -1,7 +1,6 @@
 <template>
   <div :class="`theme-${theme}`">
     <div class="layout c-bg1 c-t1 t4">
-      <div class="layout__start"></div>
       <Navbar class="layout__navbar" />
       <div
         class="layout__main"
@@ -50,24 +49,10 @@ export default {
   overflow-x: hidden;
 }
 
-.layout__start {
-  height: 1px;
-}
-
-.layout__navbar {
-  margin-top: 50px;
-}
-
 .layout__main {
   transition: opacity .3s $ease, transform .3s $ease;
   &.-blur {
     opacity: .3;
-  }
-}
-
-@media(max-width: 1024px) {
-  .layout__navbar {
-    margin-top: 0;
   }
 }
 </style>

@@ -8,19 +8,25 @@
     <nav class="navbar__container container">
       <div class="navbar__grid grid">
         <span class="navbar__logo">
-          <nuxt-link class="navbar__logo-link" to="/">
-            <Logo />
+          <nuxt-link class="navbar__logo-link c-ta" to="/">
+            <LoudNowLogo />
           </nuxt-link>
         </span>
 
         <div class="navbar__panel -top grid">
-          <nuxt-link
-            v-for="(link, i) in links"
-            :key="`navbar__link--${i}`"
-            class="navbar__link"
-            :to="link.to">
-            {{ link.text }}
-          </nuxt-link>
+          <span class="navbar__title">Loud Now Agency</span>
+          <div class="navbar__panel-links">
+            <nuxt-link
+              v-for="(link, i) in links"
+              :key="`navbar__link--${i}`"
+              class="navbar__link"
+              :to="link.to">
+              {{ link.text }}
+            </nuxt-link>
+            <a href="https://github.com/loudnowagency/" class="navbar__social" rel="noopener nofollow" target="_blank">
+              <InlineSvg src="/icons/github.svg" />
+            </a>
+          </div>
         </div>
 
         <div class="navbar__panel -side grid">
@@ -61,11 +67,11 @@
 import { mapState, mapMutations } from 'vuex'
 import InlineSvg from 'vue-inline-svg'
 import Burger from '@/components/ui/Burger'
-import Logo from '@/components/Logo'
+import LoudNowLogo from '@/components/ui/LoudNowLogo'
 
 export default {
   name: 'Navbar',
-  components: { Burger, InlineSvg, Logo },
+  components: { Burger, InlineSvg, LoudNowLogo },
   data () {
     return {
       isScrolled: false,
@@ -109,8 +115,6 @@ export default {
   transform: translateZ(0);
   font-family: $font-tech;
   transition: transform $ease .2s;
-
-  &.-scrolled { pointer-events: none; }
 }
 
 .navbar__container { max-width: none; }
@@ -119,25 +123,33 @@ export default {
 .navbar__logo {
   transition: transform .3s $ease;
 
-  .-scrolled & {
-    transform: translateX(-100px);
-    pointer-events: all;
-  }
   svg { display: block; }
 }
 
 .navbar__logo-link {
   position: relative;
   left: -20px;
+  display: inline-flex;
   margin-right: -20px;
-  display: inline-block;
   padding: 20px;
+}
+
+.navbar__title {
+  margin-left: 20px;
+  text-transform: uppercase;
+  margin-right: auto;
+  transition: transform .5s $ease, opacity .5s $ease;
 }
 
 .navbar__burger {
   margin-left: auto;
+  opacity: 0;
+  transition: opacity .2s $ease, transform .2s $ease;
+}
 
-  .-scrolled { display: block; }
+/deep/ .burger__lines {
+  &::before { transform: translateY(-5px) scaleX(0); }
+  &::after  { transform: translateY(5px) scaleX(0); }
 }
 
 .navbar__panel {
@@ -170,19 +182,21 @@ export default {
   }
 
   &.-top {
-    .-scrolled & {
-      transform: translateX(-50px);
-      opacity: 0;
-    }
+    justify-content: flex-end;
   }
+}
+
+.navbar__panel-links {
+  display: flex;
+  align-items: center;
+  transition: transform .5s $ease, opacity .5s $ease;
 }
 
 .navbar__link {
   position: relative;
-  margin-left: 60px;
+  margin-left: 40px;
   color: currentColor;
   opacity: .6;
-  text-transform: uppercase;
   transition: opacity .2s $ease;
 
   &:hover { opacity: 1; }
@@ -190,17 +204,15 @@ export default {
   .-side & {
     max-width: 30vw;
     height: 40px;
+    margin-left: 60px;
     margin-bottom: 20px;
     font-size: 18px;
   }
 }
 
 .navbar__cta {
-  display: none;
   font-family: $font-copy;
   padding: 80px 60px;
-
-  .-side & { display: block; }
 }
 
 .navbar__email {
@@ -212,8 +224,7 @@ export default {
 }
 
 .navbar__social {
-  margin-left: auto;
-  display: none;
+  margin-left: 60px;
   align-items: center;
 
   svg {
@@ -223,17 +234,14 @@ export default {
   }
 
   span {
+    display: block;
     transform: translateY(2px);
     margin-left: 10px;
-    display: none;
   }
 
   .-side & {
-    margin-left: 60px;
     margin-top: auto;
     display: flex;
-
-    span { display: block; }
   }
 }
 
@@ -246,6 +254,39 @@ export default {
   &.navbar__logo-link::after { display: none; }
   .-side & { margin-bottom: 30px; }
 }
+
+
+// Scrolled State
+.-scrolled {
+  &.navbar { pointer-events: none; }
+
+  .navbar__logo {
+    transform: translateX(-100px);
+    pointer-events: all;
+  }
+
+  .navbar__burger {
+    pointer-events: all;
+    transform: translateX(100px);
+    opacity: 1;
+  }
+
+  /deep/ .burger__lines {
+    &::before { transform: translateY(-5px) scaleX(.8); }
+    &::after  { transform: translateY(5px) scaleX(.5); }
+  }
+
+  .navbar__title {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  .navbar__panel-links {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
+
 
 @media(max-width:1024px) {
   .navbar__logo {
@@ -262,6 +303,20 @@ export default {
       padding-bottom: 150px;
       max-width: 480px;
     }
+  }
+
+  .navbar__burger {
+    pointer-events: all;
+    transform: translateX(10px);
+
+    &.-scrolled {
+      transform: translateX(10px);
+    }
+  }
+
+  /deep/ .burger__lines {
+    &::before { transform: translateY(-5px) scaleX(.8); }
+    &::after  { transform: translateY(5px) scaleX(.5); }
   }
 
   .navbar__link {

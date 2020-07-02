@@ -60,8 +60,8 @@ export default {
   components: { Button },
 
   mounted () {
-    this.startSierpinski()
-    this.startFrame()
+    // this.startSierpinski()
+    // this.startFrame()
   },
 
   data () {
