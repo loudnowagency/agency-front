@@ -47,7 +47,6 @@ export default () => {
     }
   }
 
-  const progressCache = {}
   const draw = progress => {
     if (progress < 0.025) return
     a = progress - 0.5
@@ -56,14 +55,9 @@ export default () => {
     ctx.clearRect(0, 0, width, height)
     ctx.save()
     ctx.translate(width / 2, height / 2)
-    // if (!progressCache[progress.toString()]) {
-      tx = 0.5 + Math.sin(a) * 0.25
-      ty = 0.5 + Math.sin(b) * 0.5
-      sierpinski(p0, p1, p2, r, 7)
-      // progressCache[progress.toString()] = ctx.getImageData(0, 0, width, height)
-    // } else {
-      // ctx.putImageData(progressCache[progress.toString()], 0, 0)
-    // }
+    tx = 0.5 + Math.sin(a) * 0.25
+    ty = 0.5 + Math.sin(b) * 0.5
+    sierpinski(p0, p1, p2, r, 7)
     ctx.restore()
   }
 
@@ -72,24 +66,15 @@ export default () => {
     width = canvas.width = rect.width
     height = canvas.height = rect.height
 
-    p0 = {
-      x: 0,
-      y: -height/2
-    }
-    p1 = {
-      x: width/2,
-      y: height/2
-    }
-    p2 = {
-      x: -width/2,
-      y: height/2
-    }
+    p0 = { x: 0,        y: -height/2 }
+    p1 = { x: width/2,  y: height/2 }
+    p2 = { x: -width/2, y: height/2 }
   }
 
   const init = config => {
     canvas = config.el
     color = config.color
-    ctx = canvas.getContext("2d")
+    ctx = canvas.getContext('2d')
     update()
   }
 
