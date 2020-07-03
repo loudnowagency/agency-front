@@ -1,46 +1,47 @@
 <template>
-  <div class="masthead section c-bg1">
-    <div class="masthead__container container">
-      <div class="masthead__text">
-        <h1
-          class="masthead__headline">
-          Software<br/>
-          Studio
-        </h1>
-        <p
-          class="masthead__copy">
-          We help forward-thinking companies
-          build digital experiences.
-        </p>
-        <a
-          class="masthead__button"
-          href="mailto:hi@loudnow.agency">
-          <Button>Work With Us</Button>
-        </a>
+  <div class="masthead c-bg1">
+    <div class="masthead__body container">
+      <div class="grid">
+        <div class="masthead__text">
+          <SvgSoftwareStudio class="masthead__headline" />
+          <p
+            class="masthead__copy">
+            We help forward-thinking companies
+            build digital experiences.
+          </p>
+          <a
+            class="masthead__button"
+            href="mailto:hi@loudnow.agency">
+            <Button type="primary">Work With Us</Button>
+          </a>
+        </div>
+        <div class="masthead__visuals">
+          <div
+            class="masthead__visuals-box">
+            <canvas v-scrollanim="scrollanim"></canvas>
+          </div>
+        </div>
       </div>
-      <div class="masthead__visuals">
-        <div
-          class="masthead__visuals-box">
-          <canvas v-scrollanim="scrollanim"></canvas>
-          <svg class="frame" width="597" height="519" viewBox="0 0 597 519" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M596 516.5L298.5 2.5L1 517.5L596 516.5Z" stroke="currentColor" stroke-opacity="0.1"/>
-            <path d="M330 1H326V5H330V1Z" stroke="currentColor" stroke-opacity="0.2" />
-            <path d="M326 3H301" stroke="currentColor" stroke-opacity="0.2" />
-            <path d="M300 2H298V4H300V2Z" stroke="currentColor" stroke-width="3" stroke-opacity="0.2" />
-            <g class="row row-1">
-              <path d="M342 2H345" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M347 2H352" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M354 2H365" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M366 2H378" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M379 2H392" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M394 2L397 2" stroke="currentColor" stroke-opacity="0.2" />
-            </g>
-            <g class="row row-2">
-              <path d="M342 4H349" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M351 4H361" stroke="currentColor" stroke-opacity="0.2" />
-              <path d="M363 4H379" stroke="currentColor" stroke-opacity="0.2" />
-            </g>
-          </svg>
+    </div>
+    <div class="masthead__footer c-border">
+      <div class="container">
+        <div class="masthead__footer-grid grid">
+          <div class="masthead__footer-title">
+            <span>{}</span>
+            <span class="c-t2">Building Products Used By Milions</span>
+          </div>
+          <div class="masthead__footer-logos grid">
+            <Logo
+              class="masthead__footer-logo"
+              v-for="(logo, i) in [
+                { src: '/logos/rolling-stone.svg', meta: 'with XWP' },
+                { src: '/logos/jupiter.svg', meta: 'with Artbees' },
+                { src: '/logos/rolling-stone.svg', meta: 'with XWP' },
+                { src: '/logos/jupiter.svg', meta: 'with Artbees' },
+              ]"
+              :key="`masthead__footer-logo-${i}`"
+              v-bind="logo" />
+          </div>
         </div>
       </div>
     </div>
@@ -52,16 +53,17 @@ import { mapState } from 'vuex'
 import { easing, tween, keyframes } from 'popmotion'
 import styler from 'stylefire'
 import Button from '@/components/ui/Button'
+import Logo from '@/components/ui/Logo'
+import SvgSoftwareStudio from '@/components/ui/SvgSoftwareStudio'
 import Sierpinski from '@/visuals/sierpinski'
 
 export default {
   name: 'Masthead',
 
-  components: { Button },
+  components: { Button, Logo, SvgSoftwareStudio },
 
   mounted () {
     // this.startSierpinski()
-    // this.startFrame()
   },
 
   data () {
@@ -147,69 +149,50 @@ export default {
       )
       observer.observe(canvas)
     },
-
-    async startFrame() {
-      const canvas = this.$el.querySelector('canvas')
-      const paths = this.$el.querySelectorAll('.frame path')
-      const textPaths = [...paths].filter((el, i) => i >= 4)
-      const wait = t => new Promise(res => setTimeout(res, t))
-      let textAnims = []
-
-      const asyncTween = (config, update, i) => {
-        return new Promise(complete => {
-          textAnims[i] = tween(config).start({ update, complete })
-        })
-      }
-
-      const textAnim = async (path, i) => {
-        await wait(50 * Math.random() * i)
-        await asyncTween({ from: 0, to: 1, duration: 300 }, v => styler(path).set({ pathLength: v }), i)
-        styler(path).set({ rotate: '180deg' })
-        await wait(3000)
-        await asyncTween({ from: 1, to: 0, duration: 400 }, v => styler(path).set({ pathLength: v }), i)
-        styler(path).set({ rotate: '0deg' })
-        textAnim(path, i)
-      }
-
-      textPaths.forEach(path => styler(path).set({ pathLength: 0 }))
-      textPaths.map(textAnim)
-
-      textAnims.forEach(a => a.pause())
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) textAnims.forEach(a => a.resume())
-          else textAnims.forEach(a => a.pause())
-
-        }
-      )
-      observer.observe(canvas)
-    },
   },
 }
 </script>
 
 <style lang="scss">
 .masthead {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   position: relative;
   width: 100vw;
   height: 100vh;
   max-height: 1100px;
   padding-top: 100px;
-  padding-bottom: 50px;
 }
 
-.masthead__container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  height: 100%;
+.masthead__body {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .masthead__text {
   flex-shrink: 0;
   width: col(6);
+}
+
+.masthead__headline {
+  font-size: 130px;
+  line-height: .85;
+
+  @media(max-width: 1280px) {
+    font-size: 150px;
+  }
+}
+
+.masthead__copy {
+  font-family: $font-tech;
+  max-width: 320px;
+  margin-top: 20px;
+}
+
+.masthead__button {
+  display: inline-block;
+  margin-top: 30px;
 }
 
 .masthead__visuals {
@@ -226,12 +209,6 @@ export default {
   height: 565px;
   transform: translateY(-50%);
 
-  svg {
-    width: 100%;
-    height: auto;
-    transform: translateY(-5%);
-  }
-
   canvas {
     position: absolute;
     top: -50px;
@@ -241,24 +218,31 @@ export default {
   }
 }
 
-.masthead__headline {
-  font-size: 170px;
-  line-height: .85;
-
-  @media(max-width: 1280px) {
-    font-size: 150px;
-  }
+.masthead__footer {
+  width: 100%;
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
 }
 
-.masthead__copy {
+.masthead__footer-grid {
+  display: flex;
+  align-items: center;
+  padding: 75px 0;
+}
+
+.masthead__footer-title {
   font-family: $font-tech;
-  max-width: 350px;
-  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.masthead__button {
-  display: inline-block;
-  margin-top: 70px;
+.masthead__footer-logos {
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-left: 100px;
+  transform: translateY(14px);
 }
 
 @media(max-width: 1024px) {
@@ -270,6 +254,19 @@ export default {
 
   .masthead__text {
     width: col(12);
+  }
+
+  .masthead__headline {
+    font-size: 80px;
+  }
+
+  .masthead__copy {
+    font-size: 12px;
+    max-width: 50%;
+  }
+
+  .masthead__button {
+    margin-top: 40px;
   }
 
   .masthead__visuals {
@@ -284,20 +281,6 @@ export default {
     bottom: 50px;
     width: 480px;
     height: 425px;
-    svg { display: none; }
-  }
-
-  .masthead__headline {
-    font-size: 80px;
-  }
-
-  .masthead__copy {
-    font-size: 12px;
-    max-width: 50%;
-  }
-
-  .masthead__button {
-    margin-top: 40px;
   }
 }
 
