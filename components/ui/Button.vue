@@ -20,12 +20,8 @@
 </template>
 
 <script>
-import Corners from '@/components/ui/Corners'
-import Shape from '@/components/ui/Shape'
-
 export default {
   name: 'Button',
-  components: { Corners, Shape },
   props: {
     type: String,
   }
