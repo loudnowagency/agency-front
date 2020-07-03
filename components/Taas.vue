@@ -25,18 +25,21 @@
           shape: 'circle',
         },
       ]" />
+    <CTA class="taas__cta "/>
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader'
 import ColsIcon from '@/components/ColsIcon'
+import CTA from '@/components/CTA'
 
 export default {
   name: 'Taas',
   components: {
     PageHeader,
     ColsIcon,
+    CTA,
   }
 }
 </script>
@@ -44,10 +47,11 @@ export default {
 <style lang="scss" scoped>
 .taas { padding: 120px 0; }
 /deep/ .page-header { height: auto !important; }
-.taas__cols          { padding-top: 120px; }
+.taas__cols { margin-top: 120px; }
+.taas__cta { margin-top: 120px; }
 
 @media(max-width: 1024px) {
   /deep/ .page-header { height: auto !important; }
-  .taas__cols { padding-top: 75px; }
+  .taas__cols { margin-top: 75px; }
 }
 </style>

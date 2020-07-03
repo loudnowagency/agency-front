@@ -5,6 +5,7 @@
       'c-bga': type == 'primary',
       'c-t1i': type == 'primary',
       'c-bg1': type == 'secondary',
+      'c-t1': type == 'secondary',
     }">
     <div class="button__slot">
       <slot />
