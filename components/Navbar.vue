@@ -9,7 +9,7 @@
       <div class="navbar__grid grid">
         <span class="navbar__logo">
           <nuxt-link class="navbar__logo-link c-ta" to="/">
-            <LoudNowLogo />
+            <SvgLoudNow />
           </nuxt-link>
         </span>
 
@@ -67,11 +67,11 @@
 import { mapState, mapMutations } from 'vuex'
 import InlineSvg from 'vue-inline-svg'
 import Burger from '@/components/ui/Burger'
-import LoudNowLogo from '@/components/ui/LoudNowLogo'
+import SvgLoudNow from '@/components/ui/SvgLoudNow'
 
 export default {
   name: 'Navbar',
-  components: { Burger, InlineSvg, LoudNowLogo },
+  components: { Burger, InlineSvg, SvgLoudNow },
   data () {
     return {
       isScrolled: false,

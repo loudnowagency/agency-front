@@ -9,17 +9,17 @@
         v-for="(item, i) in [
           {
             bg: 'case-study-rs.jpg',
-            clientLogo: 'xwp.svg',
-            projectLogo: 'rolling-stone.svg',
-            theme: 'dark',
+            clientName: 'XWP',
+            projectLogo: '/logos/rolling-stone.svg',
+            title: 'Building Louder Front For Rolling Stone',
             buttonText: 'See What We Did',
             link: '/studies/rolling-stone'
           },
           {
             bg: 'case-study-jupiter.jpg',
-            clientLogo: 'artbees.svg',
-            projectLogo: 'jupiter.svg',
-            theme: 'dark',
+            clientName: 'Artbees',
+            projectLogo: '/logos/jupiter.svg',
+            title: 'Building Louder Front For Rolling Stone',
             buttonText: 'See What We Did',
             link: '/studies/jupiter'
           },
