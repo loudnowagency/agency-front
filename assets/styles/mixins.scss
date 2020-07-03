@@ -7,11 +7,7 @@
     position: absolute;
     top: 100%;
     height: 1px;
-    background: $fill-1;
-
-    .theme-light & {
-      background: $fill-1-light;
-    }
+    background: currentColor;
   }
 
   &::before {
