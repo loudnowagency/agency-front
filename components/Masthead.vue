@@ -15,11 +15,8 @@
             <Button type="primary">Work With Us</Button>
           </a>
         </div>
-        <div class="masthead__visuals">
-          <div
-            class="masthead__visuals-box">
-            <canvas v-scrollanim="scrollanim"></canvas>
-          </div>
+        <div class="masthead__slot">
+          <CodeEditor />
         </div>
       </div>
     </div>
@@ -49,106 +46,19 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { easing, tween, keyframes } from 'popmotion'
-import styler from 'stylefire'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
 import SvgSoftwareStudio from '@/components/ui/SvgSoftwareStudio'
-import Sierpinski from '@/visuals/sierpinski'
+import CodeEditor from '@/components/CodeEditor'
 
 export default {
   name: 'Masthead',
 
-  components: { Button, Logo, SvgSoftwareStudio },
-
-  mounted () {
-    // this.startSierpinski()
-  },
-
-  data () {
-    return {
-      scrollanim: {
-        name: 'trans-el-from-bottom-fade',
-        delay: this.delay || 200,
-        stagger: true,
-      },
-    }
-  },
-
-  computed: {
-    ...mapState('ui', ['theme'])
-  },
-
-  methods: {
-    async startSierpinski() {
-      const canvas = this.$el.querySelector('canvas')
-      const sierpinski = new Sierpinski()
-
-      let twistAnimation
-      let prevScrollingDown
-      let prevScrollY = scrollY
-      let position = .5
-
-      const animateSierpinski = async (config) => {
-        return new Promise(resolve => {
-          if (twistAnimation) twistAnimation.stop()
-          if (!config.from) config.from = position
-          twistAnimation = tween({
-            ease: easing.easeInOut,
-            ...config
-          })
-          .pipe(v => parseFloat(v.toFixed(6)))
-          .start({
-            update: p => {
-              position = p
-              sierpinski.draw(p)
-            },
-            complete: resolve,
-          })
-        })
-      }
-
-      const sierpinskiTimeline = async () => {
-        await animateSierpinski({ to: .6 + (.12 * Math.random()), duration: 1500 + 1500 * Math.random(), })
-        sierpinskiTimeline()
-      }
-
-      const floatAnimation = tween({
-        ease: easing.easeInOut,
-        duration: 2000,
-        from: 50,
-        to: 40,
-        flip: Infinity,
-      }).start(v => canvas.style.transform = `translateY(${v}px)`)
-
-      sierpinski.init({
-        el: canvas,
-        color: this.theme === 'light'
-          ? '#000000'
-          : '#ffffff'
-      })
-
-      sierpinski.draw(position)
-      await animateSierpinski({ to: .67, duration: 2000, })
-      sierpinskiTimeline()
-
-      twistAnimation.pause()
-      floatAnimation.pause()
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            twistAnimation.resume()
-            floatAnimation.resume()
-          } else {
-            twistAnimation.pause()
-            floatAnimation.pause()
-          }
-        }
-      )
-      observer.observe(canvas)
-    },
+  components: {
+    Button,
+    Logo,
+    SvgSoftwareStudio,
+    CodeEditor,
   },
 }
 </script>
@@ -172,7 +82,7 @@ export default {
 
 .masthead__text {
   flex-shrink: 0;
-  width: col(6);
+  width: col(5);
 }
 
 .masthead__headline {
@@ -195,27 +105,8 @@ export default {
   margin-top: 30px;
 }
 
-.masthead__visuals {
-  pointer-events: none;
-  position: relative;
-  width: col(6);
-}
-
-.masthead__visuals-box {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 640px;
-  height: 565px;
-  transform: translateY(-50%);
-
-  canvas {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+.masthead__slot {
+  width: col(7);
 }
 
 .masthead__footer {
@@ -267,28 +158,6 @@ export default {
 
   .masthead__button {
     margin-top: 40px;
-  }
-
-  .masthead__visuals {
-    position: static;
-  }
-
-  .masthead__visuals-box {
-    transform: translateY(50px) translateX(0);
-    top: auto;
-    right: 30px;
-    left: auto;
-    bottom: 50px;
-    width: 480px;
-    height: 425px;
-  }
-}
-
-
-@media(max-width: 540px) {
-  .masthead__visuals-box {
-    right: auto;
-    left: 30px;
   }
 }
 </style>

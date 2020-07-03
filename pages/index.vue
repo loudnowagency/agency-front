@@ -1,9 +1,8 @@
 <template>
   <div class="home c-bg1">
     <div>
-      <Hydrate :with-delay="2000">
-        <Masthead class="home__masthead" />
-      </Hydrate>
+      <!-- Hydration handled inside component -->
+      <Masthead class="home__masthead" />
       <nuxt-link
         class="home__study-card"
         v-for="(item, i) in [
