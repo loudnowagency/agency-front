@@ -1,5 +1,5 @@
 <template>
-  <div class="tech-stack section">
+  <div class="tech-stack c-bg3">
     <div class="container">
       <div class="tech-stack__grid grid">
         <div class="tech-stack__icons-wrap">
@@ -7,8 +7,7 @@
             <div
               v-for="(icon, i) in ['vue', 'react', 'apollo', 'graphql', 'wordpress', 'laravel', 'craft', '']"
               :key="`services-icon-${icon}`"
-              :class="{'-selected c-bg1': selected.includes(i)}"
-              class="tech-stack__icon c-bg1"
+              class="tech-stack__icon c-bg3"
               :hideCorners="true">
               <div class="tech-stack__icon-border c-border"></div>
               <InlineSvg
@@ -88,12 +87,6 @@ export default {
     padding-bottom: 100%;
   }
 
-  &.-selected {
-    z-index: 2;
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0,0,0, .05);
-  }
-
   svg {
     position: absolute;
     top: 50%;
@@ -161,12 +154,6 @@ export default {
 
   .tech-stack__icons-wrap {
     width: col(12);
-  }
-
-  .tech-stack__icon {
-    &.-selected {
-      transform: scale(1);
-    }
   }
 
   .tech-stack__shape {
