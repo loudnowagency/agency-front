@@ -55,11 +55,12 @@
           </a>
         </div>
 
-        <Burger
-          class="navbar__burger"
-          :innerClass="{'-scrolled': isScrolled }"
-          :active="isNavOpen"
-          @click.native="setIsNavOpen(!isNavOpen)" />
+        <div class="navbar__burger">
+          <Burger
+            class="navbar__burger-link"
+            :active="isNavOpen"
+            @click.native="setIsNavOpen(!isNavOpen)" />
+        </div>
       </div>
     </nav>
   </header>
@@ -119,16 +120,22 @@ export default {
   transition: transform $ease .2s;
 }
 
-.navbar__container { max-width: none; }
-.navbar__grid { align-items: center; }
+.navbar__grid {
+  position: relative;
+  align-items: center;
+}
 
 .navbar__logo {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
   transition: transform .3s $ease;
 
   svg { display: block; }
 }
 
 .navbar__logo-link {
+  pointer-events: all;
   position: relative;
   left: -20px;
   display: inline-flex;
@@ -137,16 +144,24 @@ export default {
 }
 
 .navbar__title {
-  margin-left: 20px;
+  margin-left: 60px;
   text-transform: uppercase;
   margin-right: auto;
   transition: transform .5s $ease, opacity .5s $ease;
 }
 
 .navbar__burger {
-  margin-left: auto;
+  pointer-events: none;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
   opacity: 0;
   transition: opacity .2s $ease, transform .2s $ease;
+}
+
+.navbar__burger-link {
+  pointer-events: all;
 }
 
 /deep/ .burger__lines {
@@ -185,6 +200,7 @@ export default {
 
   &.-top {
     justify-content: flex-end;
+    padding-right: 20px;
   }
 }
 
@@ -264,13 +280,13 @@ export default {
   &.navbar { pointer-events: none; }
 
   .navbar__logo {
-    transform: translateX(-100px);
+    transform: translateX(50%) translateX(-50vw) translateX(50px);
     pointer-events: all;
   }
 
   .navbar__burger {
     pointer-events: all;
-    transform: translateX(100px);
+    transform: translateX(-50%) translateX(50vw) translateX(-50px);
     opacity: 1;
   }
 
@@ -308,7 +324,7 @@ export default {
     }
   }
 
-  .navbar__burger {
+  .navbar__burger-link {
     pointer-events: all;
     transform: translateX(10px);
 

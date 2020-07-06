@@ -1,5 +1,5 @@
 <template>
-  <div class="burger" :class="[{'-active': active}, innerClass]">
+  <div class="burger" :class="{'-active': active}">
     <div class="burger__lines"></div>
   </div>
 </template>
@@ -9,7 +9,6 @@ export default {
   name: 'Burger',
   props: {
     active: Boolean,
-    innerClass: Object,
   },
 }
 </script>
@@ -48,8 +47,8 @@ export default {
   &::after  { transform: translateY(5px) scaleX(.5); }
 
   .-active & {
-    &::before { transform: translateY(-5px) scaleX(0); }
-    &::after  { transform: translateY(5px) scaleX(0); }
+    &::before { transform: translateY(-5px) scaleX(0) !important; }
+    &::after  { transform: translateY(5px) scaleX(0) !important; }
   }
 }
 </style>
