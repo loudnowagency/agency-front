@@ -163,7 +163,7 @@ export default {
     pointer-events: all;
     z-index: -1;
     position: fixed;
-    top: -51px;
+    top: 0;
     left: 100vw;
     width: 100vw;
     max-width: 600px;
@@ -171,7 +171,7 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
-    padding-top: 200px;
+    padding-top: 150px;
     padding-bottom: 70px;
     background: lighten($bg-1, 1%);
     overflow: auto;
@@ -209,6 +209,7 @@ export default {
     margin-left: 60px;
     margin-bottom: 20px;
     font-size: 18px;
+    text-transform: uppercase;
   }
 }
 
