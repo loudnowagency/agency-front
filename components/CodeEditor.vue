@@ -146,7 +146,7 @@ i { font-style: normal; }
 
 @keyframes sierp {
   0% { display: block; }
-  1% { transform: translateY(-50%) translateY(-50px) scale(.9); opacity: 0; }
+  1% { transform: translateY(-50%) translateY(-50px) scale(.7); opacity: 0; }
   100% { transform: translateY(-50%) translateY(-50px) scale(1); opacity: 1; }
 }
 </style>
