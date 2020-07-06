@@ -8,19 +8,20 @@
     <nav class="navbar__container container">
       <div class="navbar__grid grid">
         <span class="navbar__logo">
-          <nuxt-link class="navbar__logo-link c-ta" to="/">
+          <nuxt-link class="navbar__logo-link c-ta -no-underline" to="/">
             <SvgLoudNow />
           </nuxt-link>
         </span>
 
         <div class="navbar__panel -top grid">
-          <span class="navbar__title">Loud Now Agency</span>
+          <nuxt-link class="navbar__title -no-underline" to="/">Loud Now Agency</nuxt-link>
           <div class="navbar__panel-links">
             <nuxt-link
               v-for="(link, i) in links"
               :key="`navbar__link--${i}`"
               class="navbar__link"
-              :to="link.to">
+              :to="link.to"
+              :exact="link.to === '/studies' ? false : true">
               {{ link.text }}
             </nuxt-link>
             <a href="https://github.com/loudnowagency/" class="navbar__social" rel="noopener nofollow" target="_blank">
@@ -34,7 +35,8 @@
             v-for="(link, i) in links"
             :key="`navbar__link--${i}`"
             class="navbar__link"
-            :to="link.to">
+            :to="link.to"
+            exact>
             {{ link.text }}
           </nuxt-link>
 
@@ -245,7 +247,7 @@ export default {
   }
 }
 
-.nuxt-link-exact-active {
+.nuxt-link-active:not(.-no-underline) {
   @include underline;
   @include underline-anim-in;
   opacity: 1;
