@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer c-bg1 c-border">
+  <footer class="footer c-bg2 c-border">
     <div class="container">
       <div class="grid">
         <div class="footer__info -i1">
@@ -50,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   padding: 100px 0;
-  border-style: solid;
+  border-top-style: solid;
   border-top-width: 1px;
 }
 

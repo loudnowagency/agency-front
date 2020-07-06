@@ -1,18 +1,20 @@
 <template>
-  <div class="feature-list container">
-    <div class="grid">
-      <strong class="feature-list__title" v-scrollanim="scrollanim">
-        {{ title }}
-      </strong>
-      <div class="feature-list__items">
-        <div class="grid">
-          <div
-            v-for="(item, i) in items"
-            v-scrollanim="scrollanim"
-            :key="`feature-list-item-${i}`"
-            class="feature-list__item">
-            <strong class="t3">{{ item.headline }}</strong>
-            <p class="c-t2">{{ item.copy }}</p>
+  <div class="feature-list">
+    <div class="container">
+      <div class="grid">
+        <strong class="feature-list__title" v-scrollanim="scrollanim">
+          {{ title }}
+        </strong>
+        <div class="feature-list__items">
+          <div class="grid">
+            <div
+              v-for="(item, i) in items"
+              v-scrollanim="scrollanim"
+              :key="`feature-list-item-${i}`"
+              class="feature-list__item">
+              <strong class="t3">{{ item.headline }}</strong>
+              <p class="c-t2">{{ item.copy }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -39,13 +41,23 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.feature-list {
+  & + & {
+    padding-top: 0 !important;
+    .feature-list__title { top: 50px; }
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 .feature-list {
   position: relative;
+  padding: 120px 0;
 }
 
 .feature-list__title {
-  top: 50px;
+  top: 170px;
   position: absolute;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonials c-bg2">
+  <div class="testimonials c-bg1">
     <div class="container">
       <div class="testimonials__header grid">
         <h3 class="testimonials__title">Business Partners</h3>
@@ -137,6 +137,10 @@ export default {
 
 <style lang="scss" scoped>
 .grid__break { width: 100%; }
+
+.testimonials {
+  padding: 120px 0;
+}
 
 .testimonials__meta {
   font-family: $font-tech;

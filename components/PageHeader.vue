@@ -1,26 +1,29 @@
 <template>
-  <div class="page-header container" :class="`layout-${layout || 1}`">
-    <div class="grid">
-      <div
-        v-if="tag1 || tag2"
-        class="page-header__tag">
-        <strong
-          v-if="tag1"
-          v-scrollanim="scrollanim">
-          {{ tag1 }}
-        </strong>
-        <br />
-        <span
-          v-if="tag2"
-          class="c-t2"
-          v-scrollanim="scrollanim">
-          {{ tag2 }}
-        </span>
-      </div>
+  <div class="page-header" :class="`layout-${layout || 1}`">
+    <div class="container">
+      <div class="grid">
+        <div
+          v-if="tag1 || tag2"
+          class="page-header__tag">
+          <strong
+            v-if="tag1"
+            v-scrollanim="scrollanim">
+            {{ tag1 }}
+          </strong>
+          <br />
+          <span
+            v-if="tag2"
+            class="c-t2"
+            v-scrollanim="scrollanim">
+            {{ tag2 }}
+          </span>
+        </div>
 
-      <h3 class="page-header__heading">
-        <p v-scrollanim="scrollanim">{{ headline }}</p>
-      </h3>
+        <h3 class="page-header__heading">
+          <p v-scrollanim="scrollanim">{{ headline }}</p>
+        </h3>
+      </div>
+      <slot />
     </div>
   </div>
 </template>
@@ -48,6 +51,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-header {
+  height: 100vh;
+  max-height: 500px;
+  width: 100%;
+  padding-top: 150px;
+  display: flex;
+  align-items: center;
+}
+
 .page-header__tag {
   font-family: $font-tech;
 
@@ -95,11 +107,7 @@ export default {
 
 @media(max-width: 1024px) {
   .page-header {
-    height: 100vh;
     max-height: 850px;
-    // min-height: 400px;
-    display: flex;
-    align-items: center;
   }
 
   .page-header__tag {

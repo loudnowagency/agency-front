@@ -1,30 +1,32 @@
 <template>
-  <div class="process container">
-    <div class="grid">
-      <strong class="process__tag" v-scrollanim="scrollanim">— Process</strong>
+  <div class="process">
+    <div class="container">
+      <div class="grid">
+        <strong class="process__tag" v-scrollanim="scrollanim">— Process</strong>
 
-      <div class="process__spacer"></div>
+        <div class="process__spacer"></div>
 
-      <h2 class="process__headline" v-scrollanim="scrollanim">Plan</h2>
-      <div class="process__copy">
-        <strong class="t3" v-scrollanim="scrollanim">Agile Development</strong>
-        <p class="c-t2" v-scrollanim="scrollanim">Every project is unique and requires different tech stacks and resources. We assess project and build a team of developers that you need. We deploy the team to you - you get full access to the developers and work with them through your channels (or ours if you prefer). They are your Software Departament until you're done.</p>
-      </div>
+        <h3 class="process__headline" v-scrollanim="scrollanim">Plan</h3>
+        <div class="process__copy">
+          <strong class="t3" v-scrollanim="scrollanim">Agile Development</strong>
+          <p class="c-t2" v-scrollanim="scrollanim">Every project is unique and requires different tech stacks and resources. We assess project and build a team of developers that you need. We deploy the team to you - you get full access to the developers and work with them through your channels (or ours if you prefer). They are your Software Departament until you're done.</p>
+        </div>
 
-      <div class="process__spacer"></div>
+        <div class="process__spacer"></div>
 
-      <h2 class="process__headline" v-scrollanim="scrollanim">Build</h2>
-      <div class="process__copy">
-        <strong class="t3" v-scrollanim="scrollanim">Project Sprints</strong>
-        <p class="c-t2" v-scrollanim="scrollanim">Big projects get split into cycles and we're on board. We'll handle daily assignments, communication and reporting. You will easily track your project progress and budget burning. Direct access to developers helps when things don't go smooth, with early problem recognition and switching goals.</p>
-      </div>
+        <h3 class="process__headline" v-scrollanim="scrollanim">Build</h3>
+        <div class="process__copy">
+          <strong class="t3" v-scrollanim="scrollanim">Project Sprints</strong>
+          <p class="c-t2" v-scrollanim="scrollanim">Big projects get split into cycles and we're on board. We'll handle daily assignments, communication and reporting. You will easily track your project progress and budget burning. Direct access to developers helps when things don't go smooth, with early problem recognition and switching goals.</p>
+        </div>
 
-      <div class="process__spacer"></div>
+        <div class="process__spacer"></div>
 
-      <h2 class="process__headline" v-scrollanim="scrollanim">Deliver</h2>
-      <div class="process__copy">
-        <strong class="t3" v-scrollanim="scrollanim">Continuous Deployments</strong>
-        <p class="c-t2" v-scrollanim="scrollanim">We believe in visuals and there is no better way to showcase a project progress than continous deployments. Our developers will iterate on the features until they are done and production-ready so you can maintain client satisfaction.</p>
+        <h3 class="process__headline" v-scrollanim="scrollanim">Deliver</h3>
+        <div class="process__copy">
+          <strong class="t3" v-scrollanim="scrollanim">Continuous Deployments</strong>
+          <p class="c-t2" v-scrollanim="scrollanim">We believe in visuals and there is no better way to showcase a project progress than continous deployments. Our developers will iterate on the features until they are done and production-ready so you can maintain client satisfaction.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -46,6 +48,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.process {
+  padding: 120px 0;
+}
+
 .process__tag {
   width: col(12);
 }

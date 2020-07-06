@@ -45,8 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/deep/ .page-header { height: auto !important; padding-top: 0 !important;}
 .taas { padding: 120px 0; }
-/deep/ .page-header { height: auto !important; }
 .taas__cols { margin-top: 120px; }
 .taas__cta { margin-top: 120px; }
 

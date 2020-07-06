@@ -126,26 +126,16 @@ i { font-style: normal; }
 }
 
 @keyframes typing {
-  0% { width: 0; }
-  10% { width: 0; }
-  10.1% { width: 7px; }
-  20% { width: 7px; }
-  20.1% { width: 20px; }
-  30% { width: 20px; }
-  30.1% { width: 30px; }
-  40% { width: 30px; }
-  40.1% { width: 40px; }
-  50% { width: 40px; }
-  50.1% { width: 50px; }
-  60% { width: 50px; }
-  60.1% { width: 60px; }
-  70% { width: 60px; }
-  70.1% { width: 90px; }
-  80% { width: 90px; }
-  80.1% { width: 120px; }
-  90% { width: 120px; }
-  90.1% { width: 140px; }
-  99.9% { width: 140px; }
+  0%    { width: 0;    } 10% { width: 0; }
+  10.1% { width: 7px;  } 20% { width: 7px; }
+  20.1% { width: 20px; } 30% { width: 20px; }
+  30.1% { width: 30px; } 40% { width: 30px; }
+  40.1% { width: 40px; } 50% { width: 40px; }
+  50.1% { width: 50px; } 60% { width: 50px; }
+  60.1% { width: 60px; } 70% { width: 60px; }
+  70.1% { width: 90px; } 80% { width: 90px; }
+  80.1% { width: 120px; } 90% { width: 120px; }
+  90.1% { width: 140px; } 99.9% { width: 140px; }
   100% { width: 180px; }
 }
 
