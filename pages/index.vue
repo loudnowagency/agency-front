@@ -1,44 +1,18 @@
 <template>
   <div class="home c-bg1">
-    <div>
-      <!-- Hydration handled inside component -->
-      <Masthead class="home__masthead" />
-      <nuxt-link
-        class="home__study-card"
-        v-for="(item, i) in [
-          {
-            bg: 'case-study-rs.jpg',
-            clientName: 'XWP',
-            projectLogo: '/logos/rolling-stone.svg',
-            title: 'Building Louder Front For Rolling Stone',
-            buttonText: 'See What We Did',
-            link: '/studies/rolling-stone'
-          },
-          {
-            bg: 'case-study-jupiter.jpg',
-            clientName: 'Artbees',
-            projectLogo: '/logos/jupiter.svg',
-            title: 'Building Louder Front For Rolling Stone',
-            buttonText: 'See What We Did',
-            link: '/studies/jupiter'
-          },
-        ]"
-        :to="item.link"
-        :key="`home__study-card-${i}`">
-        <Hydrate when-visible>
-          <CaseStudyCard v-bind="item" />
-        </Hydrate>
-      </nuxt-link>
-      <Hydrate when-visible>
-        <Taas />
-      </Hydrate>
-      <Hydrate when-visible>
-        <TechStack />
-      </Hydrate>
-      <Hydrate when-visible>
-        <Testimonials :active="2" />
-      </Hydrate>
-    </div>
+    <Masthead />
+    <Hydrate when-visible>
+      <CaseStudyRiver />
+    </Hydrate>
+    <Hydrate when-visible>
+      <Taas />
+    </Hydrate>
+    <Hydrate when-visible>
+      <TechStack />
+    </Hydrate>
+    <Hydrate when-visible>
+      <Testimonials :active="2" />
+    </Hydrate>
     <Hydrate when-visible>
       <Footer />
     </Hydrate>
@@ -48,11 +22,11 @@
 <script>
 import Hydrate from 'lazy-hydration'
 import Masthead from '@/components/Masthead'
-import CaseStudyCard from '@/components/CaseStudyCard'
+import CaseStudyRiver from '@/components/CaseStudyRiver'
 import Taas from '@/components/Taas'
-import Footer from '@/components/Footer'
 import TechStack from '@/components/TechStack'
 import Testimonials from '@/components/Testimonials'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'HomePage',
@@ -66,25 +40,13 @@ export default {
     next()
   },
   components: {
+    Hydrate,
     Masthead,
-    CaseStudyCard,
+    CaseStudyRiver,
     Taas,
-    Footer,
     TechStack,
     Testimonials,
-    Hydrate,
+    Footer,
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.home__study-card {
-  display: block;
-  margin-top: 100px;
-}
-
-@media(max-width: 1024px) {
-  .home__masthead { margin-bottom: 100px; }
-  .home__study-card { margin-top: 0; }
-}
-</style>
