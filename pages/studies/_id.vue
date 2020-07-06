@@ -3,19 +3,12 @@
     <CaseStudyCard
       class="case-study__card -first"
       :bg="currentFeaturedImage"
-      :clientLogo="currentClientLogo"
+      :clientName="currentClientName"
       :projectLogo="currentProjectLogo"
-      :theme="currentFeaturedTheme" />
-    <Hydrate ssr-only>
-      <PageHeader
-        class="case-study__header"
-        layout="4"
-        :delay="750"
-        :headline="pageHeader" />
-    </Hydrate>
+      :title="currentTitle"
+      :isMasthead="true" />
     <Hydrate ssr-only>
       <FeatureList
-        class="case-study__cols"
         title="— Key Results"
         :items="whatWeDid" />
     </Hydrate>
@@ -36,9 +29,9 @@
         <CaseStudyCard
           class="case-study__card -last"
           :bg="nextFeaturedImage"
-          :clientLogo="nextClientLogo"
+          :clientName="nextClientName"
           :projectLogo="nextProjectLogo"
-          :theme="nextFeaturedTheme"
+          :title="nextTitle"
           buttonText="Read Next" />
       </Hydrate>
     </nuxt-link>
@@ -49,7 +42,6 @@
 import Hydrate from 'lazy-hydration'
 import Picture from '@/components/ui/Picture'
 import CaseStudyCard from '@/components/CaseStudyCard'
-import PageHeader from '@/components/PageHeader'
 import FeatureList from '@/components/FeatureList'
 import CaseStudyDesc from '@/components/CaseStudyDesc'
 import Footer from '@/components/Footer'
@@ -58,10 +50,9 @@ const studies = {
   'rolling-stone': {
     name: 'Rolling Stone',
     currentFeaturedImage: 'case-study-rs.jpg',
-    currentProjectLogo: 'rolling-stone.svg',
-    currentClientLogo: 'xwp.svg',
-    currentFeaturedTheme: 'dark',
-    pageHeader: 'New Rolling Stone Front End',
+    currentProjectLogo: '/logos/rolling-stone.svg',
+    currentClientName: 'XWP',
+    currentTitle: 'Louder Front For Rolling Stone',
     whatWeDid: [
       {
         headline: 'Frontend',
@@ -82,19 +73,18 @@ const studies = {
       'Another example of a huge rebranding our team worked on. This is the effect of our collaboration with XWP, an industry leader in the WordPress world.',
       'We took an ownership for the whole front end coding of the most popular music magazine. Our focus was allocated to the development of a silky smooth page speed and user experience. Our developers worked under a restricted performance budget and code standards that comply with the WordPress VIP platform where the project is hosted. It is worth mentioning that only 11 software providers are licensed to work under the VIP infrastructure.',
     ],
-    nextFeaturedImage: 'case-study-dc.jpg',
-    nextProjectLogo: 'dale-carnegie.svg',
-    nextClientLogo: 'ds.svg',
-    nextFeaturedTheme: 'light',
+    nextFeaturedImage: 'case-study-jupiter.jpg',
+    nextProjectLogo: '/logos/jupiter.svg',
+    nextClientName: 'Artbees',
+    nextTitle: 'Top Selling WordPress Theme',
     nextLink: '/studies/jupiter',
   },
   'jupiter': {
     name: 'Jupiter',
     currentFeaturedImage: 'case-study-jupiter.jpg',
-    currentProjectLogo: 'jupiter.svg',
-    currentClientLogo: 'artbees.svg',
-    currentFeaturedTheme: 'dark',
-    pageHeader: 'Top Selling WordPress Theme',
+    currentProjectLogo: '/logos/jupiter.svg',
+    currentClientName: 'Artbees',
+    currentTitle: 'Top Selling WordPress Theme',
     whatWeDid: [
       {
         headline: 'Awards',
@@ -116,9 +106,9 @@ const studies = {
       'Loud Now Agency joined Artbees to help them get their product back on high performance track. After deep analysis of UX issues we discovered key areas to focus our development on. These included product architecture, optimizing critical rendering path and dead code elimination. All these points were overlaping but served different purposes. We split monolitic architecture into smaller pieces to enable us to lazy load components. This led into siginifficat improvements in optimization of initial pageload which was additionally supported by deferring offscreen images. We also reduced assets\' bundlesize by eliminating pieces not requested by the browser: switching from icon fonts to single svgs, client side use of Requirejs for dependency management, etc.',
     ],
     nextFeaturedImage: 'case-study-rs.jpg',
-    nextProjectLogo: 'rolling-stone.svg',
-    nextClientLogo: 'xwp.svg',
-    nextFeaturedTheme: 'dark',
+    nextProjectLogo: '/logos/rolling-stone.svg',
+    nextClientName: 'XWP',
+    nextTitle: 'Louder Front For Rolling Stone',
     nextLink: '/studies/rolling-stone',
   },
 }
@@ -131,7 +121,7 @@ export default {
   },
   head () {
     return {
-      title: `${this.name} - ${this.pageHeader} | Loud Now Agency`,
+      title: `${this.name} - ${this.currentTitle} | Loud Now Agency`,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         { hid: 'description', name: 'description', content: this.headline },
@@ -146,7 +136,6 @@ export default {
   components: {
     Picture,
     CaseStudyCard,
-    PageHeader,
     FeatureList,
     CaseStudyDesc,
     Footer,
@@ -160,27 +149,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .page-header { height: auto !important; }
 .case-study { padding-bottom: 50px; }
-.case-study__card.-first { margin-top: 200px; }
-.case-study__header { padding-top: 150px; }
-.case-study__cols { margin-top: 150px; }
-.case-study__screenshot { margin-top: 150px; }
-.case-study__text { padding-top: 200px; }
-.case-study__card.-last { margin-top: 200px; }
+.case-study__card.-first { margin-top: 150px; }
 
 .case-study__screenshot img {
   margin : 0 auto;
-}
-
-@media(max-width: 1024px) {
-  /deep/ .page-header { height: auto !important; }
-  .case-study { padding-bottom: 0; }
-  .case-study__card.-first { margin-top: 100px; }
-  .case-study__header { padding-top: 20px; }
-  .case-study__cols { margin-top: 70px; }
-  .case-study__screenshot { margin-top: 50px; }
-  .case-study__text { padding-top: 100px; }
-  .case-study__card.-last { margin-top: 100px; }
 }
 </style>

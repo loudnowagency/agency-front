@@ -1,25 +1,21 @@
 <template>
-  <div clas="case-study-desc section">
+  <div class="case-study-desc">
     <div class="container">
       <div class="grid">
-
         <div class="case-study-desc__tag">
           <h5 class="c-t2">Online:</h5>
           <a :href="url" rel="noopener nofollow" target="_blank">{{ url.replace('https://', '') }}</a>
         </div>
-
         <div class="case-study-desc__headline t1">
           <p>{{ headline }}</p>
           <span v-if="headlineAuthor" class="t5">{{ headlineAuthor }}</span>
         </div>
-
         <p
           v-for="(text, i) in copy"
           :key="`case-study-desc__copy--${i}`"
           class="case-study-desc__copy c-t2 t3">
           {{ text }}
         </p>
-
       </div>
     </div>
   </div>
@@ -38,6 +34,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.case-study-desc {
+  padding: 120px 0;
+}
+
 .case-study-desc__tag {
   order: 0;
   width: col(3);

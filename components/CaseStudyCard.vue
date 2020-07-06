@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <div class="case-study-card">
+    <div
+      class="case-study-card"
+      :class="{'-masthead': isMasthead}">
       <Picture
         class="case-study-card__bg"
         :src="`/images/${bg}`" />
@@ -34,6 +36,7 @@ export default {
     projectLogo: String,
     title: String,
     buttonText: String,
+    isMasthead: Boolean,
   },
 }
 </script>
@@ -64,13 +67,17 @@ export default {
 }
 
 .case-study-card__title {
-  max-width: 350px;
+  max-width: 300px;
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 30px;
   line-height: 1.2;
   font-weight: 700;
   // text-transform: uppercase;
+  .-masthead & {
+    font-size: 50px;
+    max-width: 450px;
+  }
 }
 
 .case-study-card__button {

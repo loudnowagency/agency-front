@@ -7,7 +7,7 @@
           bg: 'case-study-rs.jpg',
           clientName: 'XWP',
           projectLogo: '/logos/rolling-stone.svg',
-          title: 'Building Louder Front For Rolling Stone',
+          title: 'Louder Front For Rolling Stone',
           buttonText: 'See What We Did',
           link: '/studies/rolling-stone'
         },
@@ -15,7 +15,7 @@
           bg: 'case-study-jupiter.jpg',
           clientName: 'Artbees',
           projectLogo: '/logos/jupiter.svg',
-          title: 'Building Louder Front For Rolling Stone',
+          title: 'Top Selling WordPress Theme',
           buttonText: 'See What We Did',
           link: '/studies/jupiter'
         },
