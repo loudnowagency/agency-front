@@ -10,7 +10,12 @@
     <Hydrate when-visible>
       <CaseStudyRiver />
     </Hydrate>
-    <OpenSource class="case-studies__carousel" />
+    <Hydrate when-visible>
+      <ProjectsGrid class="c-bg2" />
+    </Hydrate>
+    <!-- <Hydrate when-visible>
+      <OpenSource class="c-bg3" />
+    </Hydrate> -->
     <Hydrate when-visible>
       <Testimonials :active="1" />
     </Hydrate>
@@ -24,6 +29,7 @@
 import Hydrate from 'lazy-hydration'
 import PageHeader from '@/components/PageHeader'
 import CaseStudyRiver from '@/components/CaseStudyRiver'
+import ProjectsGrid from '@/components/ProjectsGrid'
 import OpenSource from '@/components/OpenSource'
 import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
@@ -47,6 +53,7 @@ export default {
     Hydrate,
     PageHeader,
     CaseStudyRiver,
+    ProjectsGrid,
     OpenSource,
     Testimonials,
     Footer,

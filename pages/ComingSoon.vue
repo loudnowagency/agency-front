@@ -25,8 +25,6 @@
         <div class="masthead__visuals-title">Our Selected Projects:</div>
         <img class="masthead__visuals-logo" src="@/static/logos/rolling-stone.svg" />
         <div class="masthead__visuals-logo-tag">Client: XWP</div>
-        <img class="masthead__visuals-logo" src="@/static/logos/dale-carnegie-2.svg" />
-        <div class="masthead__visuals-logo-tag">Client: Digital Surgeons</div>
         <img class="masthead__visuals-logo" src="@/static/logos/jupiter.svg" />
         <div class="masthead__visuals-logo-tag">Client: Artbees</div>
       </div>
