@@ -21,11 +21,11 @@
   ctx.<i c2>fill</i>()
 }
 
-<i c3>export default {</i>
+<span><i c3>export default {</i>
   init,
   draw,
   update
-<i c3>}</i>
+<i c3>}</i></span>
       </pre>
       <div class="c-bg1"></div>
       <pre class="code-editor__terminal">
@@ -68,11 +68,10 @@ i { font-style: normal; }
 
 .code-editor-sierpinski {
   z-index: 1;
-  position: absolute;
+  position: absolute !important;
   top: 50%;
   right: 0;
-  transform: translateY(-50%) translateY(-50px);
-  width: 70%;
+  width: 70% !important;
   opacity: 0;
   animation: sierp 1.5s forwards $ease;
 }
@@ -81,11 +80,11 @@ i { font-style: normal; }
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  height: 395px;
+  max-height: 395px;
   width: 100%;
   font-family: $font-tech;
   font-size: 10px;
-  line-height: 13px;
+  line-height: 1.3;
   transform-origin: top center;
   animation: scale 1.5s forwards 3s $ease;
 }
@@ -141,12 +140,41 @@ i { font-style: normal; }
 
 @keyframes scale {
   from { transform: scale(1); opacity: 1; }
-  to { transform: scale(.95); opacity: .5; }
+  to { transform: scale(.95); opacity: .8; }
 }
 
 @keyframes sierp {
   0% { display: block; }
-  1% { transform: translateY(-50%) translateY(-50px) scale(.7); opacity: 0; }
-  100% { transform: translateY(-50%) translateY(-50px) scale(1); opacity: 1; }
+  1% { transform: translateY(-62%) scale(.7); opacity: 0; }
+  100% { transform: translateY(-62%) scale(1); opacity: 1; }
+}
+
+@media (max-width: 1280px) {
+  .code-editor { font-size: calc(100vw / 128); }
+}
+
+@media (max-width: 1024px) {
+  .code-editor { display: none; }
+
+  pre {
+    margin: 0;
+
+    span { display: none; }
+  }
+
+  .code-editor-sierpinski {
+    width: 50%;
+    top: 50%;
+  }
+
+  .code-editor {
+    transform-origin: left center;
+    font-size: calc(100vw / 50);
+  }
+
+  .code-editor__body,
+  .code-editor__terminal {
+    padding: 10px 22px;
+  }
 }
 </style>

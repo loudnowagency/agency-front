@@ -106,10 +106,6 @@ export default {
 }
 
 @media(max-width: 1024px) {
-  .page-header {
-    max-height: 850px;
-  }
-
   .page-header__tag {
     line-height: 1.4;
     width: col(12) !important;

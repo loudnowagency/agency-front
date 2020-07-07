@@ -21,13 +21,13 @@
           <div class="testimonial__body">
             <div class="testimonial__headline">
               {{ testimonial.author }},
-              <span class="c-t2">{{ testimonial.role }}</span>
+              <span class="testimonial__role c-t2">{{ testimonial.role }}</span>
             </div>
             <Logo
               class="testimonial__logo"
               :src="`/logos/${testimonial.logo}`" />
             <div class="testimonial__copy">
-              <header class="t2">{{ testimonial.headline }}</header>
+              <header class="testimonial__headline t2">{{ testimonial.headline }}</header>
               <p
                 v-for="(text, j) in testimonial.copy"
                 :key="`text-${j}`"
@@ -152,7 +152,7 @@ export default {
 }
 
 .testimonials__slider {
-  margin-top: 70px;
+  margin-top: 120px;
 }
 
 .testimonial {
@@ -201,5 +201,40 @@ export default {
 
 .testimonials__prev {
   transform: scaleX(-1);
+}
+
+@media (max-width: 1024px) {
+  .testimonials { padding: 80px 0; }
+
+  .testimonials__meta {
+    width: 100%;
+    order: -1;
+    margin-bottom: 50px;
+  }
+
+  .testimonials__slider {
+    margin-top: 70px;
+  }
+
+  .testimonial {
+    margin-left: 0;
+  }
+
+  .testimonial__body {
+    padding: 30px;
+  }
+
+  .testimonial__role {
+    display: block;
+    font-size: 12px;
+  }
+
+  .testimonial__headline  {
+    font-size: 17px;
+  }
+
+  .testimonial__picture {
+    display: none;
+  }
 }
 </style>

@@ -8,11 +8,15 @@
         <p class="cta__copy">
           Have you ever missed a deadline, turned down a client due to lack of development resources or got lost in workload? We're here to help. Our studio plays supporting role in digital projects' planing, execution and delivery.
         </p>
-        <Button
+        <a
           class="cta__button"
-          type="secondary">
-          Work With Us
-        </Button>
+          href="mailto:hi@loudnow.agency"
+          target="_blank">
+          <Button
+            type="secondary">
+            Work With Us
+          </Button>
+        </a>
       </div>
     </div>
   </div>
@@ -45,4 +49,24 @@ export default {
   margin-left: auto;
 }
 
+@media (max-width: 1024px) {
+  .cta__grid {
+    padding: 30px;
+  }
+
+  .cta__title {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .cta__copy {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .cta__button {
+    margin-top: 40px;
+    margin-left: 0;
+  }
+}
 </style>

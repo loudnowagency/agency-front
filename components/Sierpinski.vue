@@ -14,8 +14,20 @@ import Sierpinski from '@/visuals/sierpinski'
 export default {
   name: 'Sierpinski',
 
-  mounted () {
-    this.startSierpinski()
+  data () {
+    return {
+      twistAnim: null,
+      sierpinski: null,
+      canvas: null,
+      position: .5,
+    }
+  },
+
+  async mounted () {
+    this.canvas = this.$el.querySelector('canvas')
+    this.sierpinski = new Sierpinski()
+    await this.initAnim()
+    this.throttleAnim()
   },
 
   computed: {
@@ -23,60 +35,50 @@ export default {
   },
 
   methods: {
-    async startSierpinski() {
-      const canvas = this.$el.querySelector('canvas')
-      const sierpinski = new Sierpinski()
-
-      let twistAnimation
-      let prevScrollingDown
-      let prevScrollY = scrollY
-      let position = .5
-
-      const animateSierpinski = async (config) => {
-        return new Promise(resolve => {
-          if (twistAnimation) twistAnimation.stop()
-          if (!config.from) config.from = position
-          twistAnimation = tween({
-            ease: easing.easeInOut,
-            ...config
-          })
-          .pipe(v => parseFloat(v.toFixed(6)))
-          .start({
-            update: p => {
-              position = p
-              sierpinski.draw(p)
-            },
-            complete: resolve,
-          })
-        })
-      }
-
-      const sierpinskiTimeline = async () => {
-        await animateSierpinski({ to: .6, duration: 5000 })
-        await animateSierpinski({ to: .7, duration: 3000 })
-        sierpinskiTimeline()
-      }
-
-      sierpinski.init({
-        el: canvas,
-        color: this.theme === 'light'
-          ? '#000000'
-          : '#ffffff'
+    async initAnim () {
+      this.sierpinski.init({
+        el: this.canvas,
+        color: this.theme === 'light' ? '#000000' : '#ffffff',
       })
+      this.sierpinski.draw(this.position)
+      await this.animateSierpinski({ to: .72, duration: 1500, })
+      this.twistAnimLoop()
+    },
 
-      sierpinski.draw(position)
-      await animateSierpinski({ to: .72, duration: 1500, })
-      sierpinskiTimeline()
+    async animateSierpinski (config) {
+      return new Promise(resolve => {
+        if (this.twistAnim) this.twistAnim.stop()
+        if (!config.from) config.from = this.position
+        this.twistAnim = tween({
+          ease: easing.easeInOut,
+          ...config
+        })
+        .pipe(v => parseFloat(v.toFixed(6)))
+        .start({
+          update: p => {
+            this.position = p
+            this.sierpinski.draw(p)
+          },
+          complete: resolve,
+        })
+      })
+    },
 
-      twistAnimation.pause()
+    async twistAnimLoop () {
+      await this.animateSierpinski({ to: .6, duration: 5000 })
+      await this.animateSierpinski({ to: .7, duration: 3000 })
+      this.twistAnimLoop()
+    },
 
+    throttleAnim () {
       const observer = new IntersectionObserver(
         (entries) => {
-          if (entries[0].isIntersecting)  twistAnimation.resume()
-          else twistAnimation.pause()
+          if (entries[0].isIntersecting)  this.twistAnim.resume()
+          else this.twistAnim.pause()
         }
       )
-      observer.observe(canvas)
+      this.twistAnim.pause()
+      observer.observe(this.canvas)
     },
   },
 }
@@ -99,5 +101,9 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .sierpinski { display: none; }
   }
 </style>

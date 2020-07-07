@@ -45,4 +45,10 @@ export default {
   display: block;
   & + & { margin-top: 50px; }
 }
+
+@media (max-width: 1024px) {
+  .case-study-river {
+    padding: 80px 0;
+  }
+}
 </style>

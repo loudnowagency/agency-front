@@ -11,7 +11,8 @@
           </p>
           <a
             class="masthead__button"
-            href="mailto:hi@loudnow.agency">
+            href="mailto:hi@loudnow.agency"
+            target="_blank">
             <Button type="primary">Work With Us</Button>
           </a>
         </div>
@@ -31,10 +32,10 @@
             <Logo
               class="masthead__footer-logo"
               v-for="(logo, i) in [
-                { src: '/logos/rolling-stone.svg', meta: 'with XWP' },
-                { src: '/logos/jupiter.svg', meta: 'with Artbees' },
-                { src: '/logos/rolling-stone.svg', meta: 'with XWP' },
-                { src: '/logos/jupiter.svg', meta: 'with Artbees' },
+                { src: '/logos/rolling-stone.svg', meta: 'with XWP', height: 27, },
+                { src: '/logos/newman.svg', meta: 'with Digital Surgeons', height: 24, },
+                { src: '/logos/lovesac.svg', meta: 'with Digital Surgeons', height: 24, },
+                { src: '/logos/jupiter.svg', meta: 'with Artbees', height: 30, },
               ]"
               :key="`masthead__footer-logo-${i}`"
               v-bind="logo" />
@@ -82,22 +83,21 @@ export default {
 
 .masthead__text {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: col(5);
 }
 
 .masthead__headline {
-  font-size: 130px;
-  line-height: .85;
-
-  @media(max-width: 1280px) {
-    font-size: 150px;
-  }
+  max-width: 70%;
+  height: auto;
 }
 
 .masthead__copy {
   font-family: $font-tech;
   max-width: 320px;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .masthead__button {
@@ -136,19 +136,50 @@ export default {
   transform: translateY(14px);
 }
 
+@media(max-width: 1240px) {
+  .masthead__footer-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .masthead__footer-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .masthead__footer-logos {
+    padding-left: 0;
+    flex-grow: 0;
+    min-width: 70%;
+  }
+
+  .masthead__footer-logo {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+}
+
 @media(max-width: 1024px) {
   .masthead {
-    padding-top: 12vh;
-    padding-bottom: 12vh;
-    max-height: 850px;
+    padding-top: 150px;
+    height: auto;
+    max-height: none;
   }
 
   .masthead__text {
     width: col(12);
+    margin-bottom: 50px;
+  }
+
+  .masthead__slot {
+    display: none;
   }
 
   .masthead__headline {
-    font-size: 80px;
+    max-width: 250px;
   }
 
   .masthead__copy {
@@ -158,6 +189,15 @@ export default {
 
   .masthead__button {
     margin-top: 40px;
+  }
+
+  .masthead__footer-logo {
+    padding-left: 0;
+    width: 50%;
+  }
+
+  .masthead__footer-logos {
+    width: 100%;
   }
 }
 </style>

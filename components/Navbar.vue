@@ -44,7 +44,8 @@
             <p><strong>Drop us a line or two, we are open for creative minds and collaborations</strong></p>
             <a
               class="navbar__email"
-              href="mailto:hi@loudnow.agency">
+              href="mailto:hi@loudnow.agency"
+              target="_blank">
               hi@loudnow.agency
             </a>
           </div>
@@ -285,7 +286,6 @@ export default {
   }
 
   .navbar__burger {
-    pointer-events: all;
     transform: translateX(-50%) translateX(50vw) translateX(-50px);
     opacity: 1;
   }
@@ -304,14 +304,21 @@ export default {
     transform: translateX(50px);
     opacity: 0;
   }
+
+  @media(max-width: 680px) {
+    .navbar__logo { transform: translateX(0); }
+    .navbar__burger { transform: translateX(10px); }
+  }
 }
 
 
 @media(max-width:1024px) {
   .navbar__logo {
-    transform: translateX(-3px) scale(.8);
+    transform: translateX(0);
+  }
 
-    .-scrolled & { transform: translateX(-3px) scale(.8); }
+  .navbar__logo-link {
+    transform: scale(.8);
   }
 
   .navbar__panel {
@@ -324,13 +331,9 @@ export default {
     }
   }
 
-  .navbar__burger-link {
-    pointer-events: all;
+  .navbar__burger {
+    opacity: 1;
     transform: translateX(10px);
-
-    &.-scrolled {
-      transform: translateX(10px);
-    }
   }
 
   /deep/ .burger__lines {
@@ -339,7 +342,9 @@ export default {
   }
 
   .navbar__link {
-    margin-left: 35px;
+    .-side & {
+      margin-left: 35px;
+    }
   }
 
   .navbar__cta {

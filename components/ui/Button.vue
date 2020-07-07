@@ -38,6 +38,12 @@ export default {
   white-space: nowrap;
   height: 50px;
   flex-shrink: 0;
+  transition: .2s all $ease;;
+
+  &:hover {
+    color: $bg-1;
+    background: $bg-1-light;
+  }
 }
 
 .button__slot {

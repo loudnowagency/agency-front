@@ -52,6 +52,7 @@ export default {
 
 @media(max-width: 1024px) {
   /deep/ .page-header { height: auto !important; }
+  .taas { padding: 80px 0; }
   .taas__cols { margin-top: 75px; }
 }
 </style>

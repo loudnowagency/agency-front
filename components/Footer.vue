@@ -23,7 +23,8 @@
             <p><strong>Drop us a line or two, we are open for creative minds and collaborations</strong></p>
             <a
               class="footer__email c-ta"
-              href="mailto:hi@loudnow.agency">
+              href="mailto:hi@loudnow.agency"
+              target="_blank">
               <span class="c-t1">hi@loudnow.agency</span>
             </a>
           </div>
@@ -90,8 +91,8 @@ export default {
 
 @media (max-width: 1024px) {
   .footer {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
     font-size: 12px;
   }
 

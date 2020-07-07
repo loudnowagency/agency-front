@@ -61,8 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 .tech-stack {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding: 120px 0;
 }
 
 .tech-stack__grid { align-items: center; }
@@ -148,8 +147,7 @@ export default {
 
 @media(max-width: 1024px) {
   .tech-stack {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: 80px 0;
   }
 
   .tech-stack__icons-wrap {

@@ -50,10 +50,9 @@ export default {
   align-items: flex-start;
   justify-content: center;
   max-height: 100vh;
-  height: 500px;
+  min-height: 500px;
   width: 100%;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding: 30px 60px;
 }
 
 .case-study-card__bg {
@@ -86,7 +85,13 @@ export default {
 
 @media(max-width: 1024px) {
   .case-study-card {
-    height: 350px;
+    min-height: 350px;
+    padding: 30px;
+  }
+
+  .case-study-card__title {
+    font-size: 20px;
+    max-width: 200px;
   }
 }
 </style>
