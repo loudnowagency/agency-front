@@ -2,14 +2,13 @@ h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4 {
-  font-family: $font-head;
-  text-transform: uppercase;
+  font-family: $font-copy;
   font-weight: bold;
 }
 
 h1, .h1 { font-size: 84px; line-height: 1; }
 h2, .h2 { font-size: 64px; line-height: 1.125; }
-h3, .h3 { font-size: 86px; line-height: 1; }
+h3, .h3 { font-size: 40px; line-height: 1.2; }
 h4, .h4 { font-size: 36px; line-height: 1.44; }
 h5, .h5 { font-size: 12px; line-height: 1.33; text-transform: uppercase; }
 
@@ -23,6 +22,6 @@ h5, .h5 { font-size: 12px; line-height: 1.33; text-transform: uppercase; }
 @media (max-width: 1024px) {
   h1, .h1 { font-size: 36px; }
   h2, .h2 { font-size: 30px; }
-  h3, .h3 { font-size: 50px; }
+  h3, .h3 { font-size: 30px; }
   h4, .h4, .t1 { font-size: 20px; }
 }

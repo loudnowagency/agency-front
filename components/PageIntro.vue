@@ -1,19 +1,17 @@
 <template>
   <section class="page-intro">
-    <div class="container">
-      <div class="page-intro__grid grid">
-        <div class="page-intro-copy t3" v-scrollanim="scrollanim">
-          <p v-for="(copy, i) in leftCopy"
-            :key="`leftCopy-${i}`">
-            {{ copy }}
-          </p>
-        </div>
-        <div class="page-intro-note c-t2" v-scrollanim="scrollanim">
-          <p v-for="(copy, i) in rightCopy"
-            :key="`rightCopy-${i}`">
-            {{ copy }}
-          </p>
-        </div>
+    <div class="page-intro__grid grid">
+      <div class="page-intro-copy t3" v-scrollanim="scrollanim">
+        <p v-for="(copy, i) in leftCopy"
+          :key="`leftCopy-${i}`">
+          {{ copy }}
+        </p>
+      </div>
+      <div class="page-intro-note c-t2" v-scrollanim="scrollanim">
+        <p v-for="(copy, i) in rightCopy"
+          :key="`rightCopy-${i}`">
+          {{ copy }}
+        </p>
       </div>
     </div>
   </section>
@@ -39,6 +37,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-intro {
+  padding-top: 50px;
+}
+
 .page-intro__grid {
   p {  margin-top: 20px; }
 }

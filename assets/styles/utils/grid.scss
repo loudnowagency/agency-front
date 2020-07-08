@@ -1,16 +1,11 @@
-.section {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
 .container {
-  $padding: 150px;
-  margin: 0 auto;
+  $container-padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-  max-width: $container-width + ($padding * 2);
-  padding-left: $padding;
-  padding-right: $padding;
+  max-width: $container-width + ($container-padding * 2);
+  padding-left: $container-padding;
+  padding-right: $container-padding;
 }
 
 .grid {
@@ -19,14 +14,10 @@
 }
 
 @media(max-width:1024px) {
-  .section {
-    max-width: 660px;
-  }
-
+  $container-padding: 30px;
   .container {
-    $padding: 30px;
-    max-width: 480px + ($padding * 2);
-    padding-left: $padding;
-    padding-right: $padding;
+    max-width: 480px + ($container-padding * 2);
+    padding-left: $container-padding;
+    padding-right: $container-padding;
   }
 }

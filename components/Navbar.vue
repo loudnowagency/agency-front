@@ -8,19 +8,26 @@
     <nav class="navbar__container container">
       <div class="navbar__grid grid">
         <span class="navbar__logo">
-          <nuxt-link class="navbar__logo-link" to="/">
-            <Logo />
+          <nuxt-link class="navbar__logo-link c-ta -no-underline" to="/">
+            <SvgLoudNow />
           </nuxt-link>
         </span>
 
         <div class="navbar__panel -top grid">
-          <nuxt-link
-            v-for="(link, i) in links"
-            :key="`navbar__link--${i}`"
-            class="navbar__link"
-            :to="link.to">
-            {{ link.text }}
-          </nuxt-link>
+          <nuxt-link class="navbar__title -no-underline" to="/">Loud Now Agency</nuxt-link>
+          <div class="navbar__panel-links">
+            <nuxt-link
+              v-for="(link, i) in links"
+              :key="`navbar__link--${i}`"
+              class="navbar__link"
+              :to="link.to"
+              :exact="link.to === '/studies' ? false : true">
+              {{ link.text }}
+            </nuxt-link>
+            <a href="https://github.com/loudnowagency/" class="navbar__social" rel="noopener nofollow" target="_blank">
+              <InlineSvg src="/icons/github.svg" />
+            </a>
+          </div>
         </div>
 
         <div class="navbar__panel -side grid">
@@ -28,7 +35,8 @@
             v-for="(link, i) in links"
             :key="`navbar__link--${i}`"
             class="navbar__link"
-            :to="link.to">
+            :to="link.to"
+            exact>
             {{ link.text }}
           </nuxt-link>
 
@@ -36,7 +44,8 @@
             <p><strong>Drop us a line or two, we are open for creative minds and collaborations</strong></p>
             <a
               class="navbar__email"
-              href="mailto:hi@loudnow.agency">
+              href="mailto:hi@loudnow.agency"
+              target="_blank">
               hi@loudnow.agency
             </a>
           </div>
@@ -47,11 +56,12 @@
           </a>
         </div>
 
-        <Burger
-          class="navbar__burger"
-          :innerClass="{'-scrolled': isScrolled }"
-          :active="isNavOpen"
-          @click.native="setIsNavOpen(!isNavOpen)" />
+        <div class="navbar__burger">
+          <Burger
+            class="navbar__burger-link"
+            :active="isNavOpen"
+            @click.native="setIsNavOpen(!isNavOpen)" />
+        </div>
       </div>
     </nav>
   </header>
@@ -61,11 +71,11 @@
 import { mapState, mapMutations } from 'vuex'
 import InlineSvg from 'vue-inline-svg'
 import Burger from '@/components/ui/Burger'
-import Logo from '@/components/Logo'
+import SvgLoudNow from '@/components/ui/SvgLoudNow'
 
 export default {
   name: 'Navbar',
-  components: { Burger, InlineSvg, Logo },
+  components: { Burger, InlineSvg, SvgLoudNow },
   data () {
     return {
       isScrolled: false,
@@ -74,6 +84,7 @@ export default {
         { to: '/studies', text: 'Studies' },
         { to: '/services', text: 'Services' },
         { to: '/approach', text: 'Approach' },
+        { to: '/careers', text: 'Careers' },
       ],
     }
   },
@@ -109,35 +120,55 @@ export default {
   transform: translateZ(0);
   font-family: $font-tech;
   transition: transform $ease .2s;
-
-  &.-scrolled { pointer-events: none; }
 }
 
-.navbar__container { max-width: none; }
-.navbar__grid { align-items: center; }
+.navbar__grid {
+  position: relative;
+  align-items: center;
+}
 
 .navbar__logo {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
   transition: transform .3s $ease;
 
-  .-scrolled & {
-    transform: translateX(-100px);
-    pointer-events: all;
-  }
   svg { display: block; }
 }
 
 .navbar__logo-link {
+  pointer-events: all;
   position: relative;
   left: -20px;
+  display: inline-flex;
   margin-right: -20px;
-  display: inline-block;
   padding: 20px;
 }
 
-.navbar__burger {
-  margin-left: auto;
+.navbar__title {
+  margin-left: 60px;
+  text-transform: uppercase;
+  margin-right: auto;
+  transition: transform .5s $ease, opacity .5s $ease;
+}
 
-  .-scrolled { display: block; }
+.navbar__burger {
+  pointer-events: none;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .2s $ease, transform .2s $ease;
+}
+
+.navbar__burger-link {
+  pointer-events: all;
+}
+
+/deep/ .burger__lines {
+  &::before { transform: translateY(-5px) scaleX(0); }
+  &::after  { transform: translateY(5px) scaleX(0); }
 }
 
 .navbar__panel {
@@ -149,7 +180,7 @@ export default {
     pointer-events: all;
     z-index: -1;
     position: fixed;
-    top: -51px;
+    top: 0;
     left: 100vw;
     width: 100vw;
     max-width: 600px;
@@ -157,7 +188,7 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
-    padding-top: 200px;
+    padding-top: 150px;
     padding-bottom: 70px;
     background: lighten($bg-1, 1%);
     overflow: auto;
@@ -170,19 +201,22 @@ export default {
   }
 
   &.-top {
-    .-scrolled & {
-      transform: translateX(-50px);
-      opacity: 0;
-    }
+    justify-content: flex-end;
+    padding-right: 20px;
   }
+}
+
+.navbar__panel-links {
+  display: flex;
+  align-items: center;
+  transition: transform .5s $ease, opacity .5s $ease;
 }
 
 .navbar__link {
   position: relative;
-  margin-left: 60px;
+  margin-left: 40px;
   color: currentColor;
   opacity: .6;
-  text-transform: uppercase;
   transition: opacity .2s $ease;
 
   &:hover { opacity: 1; }
@@ -190,17 +224,16 @@ export default {
   .-side & {
     max-width: 30vw;
     height: 40px;
+    margin-left: 60px;
     margin-bottom: 20px;
     font-size: 18px;
+    text-transform: uppercase;
   }
 }
 
 .navbar__cta {
-  display: none;
   font-family: $font-copy;
   padding: 80px 60px;
-
-  .-side & { display: block; }
 }
 
 .navbar__email {
@@ -212,8 +245,7 @@ export default {
 }
 
 .navbar__social {
-  margin-left: auto;
-  display: none;
+  margin-left: 60px;
   align-items: center;
 
   svg {
@@ -223,21 +255,18 @@ export default {
   }
 
   span {
+    display: block;
     transform: translateY(2px);
     margin-left: 10px;
-    display: none;
   }
 
   .-side & {
-    margin-left: 60px;
     margin-top: auto;
     display: flex;
-
-    span { display: block; }
   }
 }
 
-.nuxt-link-exact-active {
+.nuxt-link-active:not(.-no-underline) {
   @include underline;
   @include underline-anim-in;
   opacity: 1;
@@ -247,11 +276,50 @@ export default {
   .-side & { margin-bottom: 30px; }
 }
 
+
+// Scrolled State
+.-scrolled {
+  &.navbar { pointer-events: none; }
+
+  .navbar__logo {
+    transform: translateX(50%) translateX(-50vw) translateX(50px);
+    pointer-events: all;
+  }
+
+  .navbar__burger {
+    transform: translateX(-50%) translateX(50vw) translateX(-50px);
+    opacity: 1;
+  }
+
+  /deep/ .burger__lines {
+    &::before { transform: translateY(-5px) scaleX(.8); }
+    &::after  { transform: translateY(5px) scaleX(.5); }
+  }
+
+  .navbar__title {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  .navbar__panel-links {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  @media(max-width: 680px) {
+    .navbar__logo { transform: translateX(0); }
+    .navbar__burger { transform: translateX(10px); }
+  }
+}
+
+
 @media(max-width:1024px) {
   .navbar__logo {
-    transform: translateX(-3px) scale(.8);
+    transform: translateX(0);
+  }
 
-    .-scrolled & { transform: translateX(-3px) scale(.8); }
+  .navbar__logo-link {
+    transform: scale(.8);
   }
 
   .navbar__panel {
@@ -264,8 +332,20 @@ export default {
     }
   }
 
+  .navbar__burger {
+    opacity: 1;
+    transform: translateX(10px);
+  }
+
+  /deep/ .burger__lines {
+    &::before { transform: translateY(-5px) scaleX(.8); }
+    &::after  { transform: translateY(5px) scaleX(.5); }
+  }
+
   .navbar__link {
-    margin-left: 35px;
+    .-side & {
+      margin-left: 35px;
+    }
   }
 
   .navbar__cta {

@@ -1,43 +1,38 @@
 <template>
-    <div class="c-bg1">
-      <div class="services">
-        <Hydrate ssr-only>
-          <PageHeader
-            class="services__header"
-            layout="2"
-            tag1="Services"
-            tag2="What We Offer"
-            :headline="`We plan, build and deliver digital experiences.`" />
-        </Hydrate>
-        <Hydrate ssr-only>
-          <FeatureList
-            class="services__cols-1"
-            title="— Development"
-            :items="[
-              { headline: 'Frontend', copy: 'Pixel perfect design implementation, responsiveness, micro-interactions that catch attention. We do fronts that sell.' },
-              { headline: 'Backend', copy: 'Security for your data, optimized resources usage, boosted assets delivery. We do backs that last.' },
-              { headline: 'Performance', copy: 'Snappy mobile and desktop experience, on time with the first paint and interactivity. Page speed that leaves competitors behind.' },
-              { headline: 'Accessibility', copy: 'Keyboard navigation, screen readers, content contrast and text scaling. Leave no clients behind.' },
-              { headline: 'CMS Integrations', copy: 'Wordpress, Craft or something niche. Headless integration or backend templating. Content is king, our clients are emperors.' },
-              { headline: 'Native Apps', copy: 'Vue Native or React Native. Common stack for common use. We can get native native if that\'s your goal.' },
-            ]" />
-        </Hydrate>
-        <Hydrate ssr-only>
-          <FeatureList
-            class="services__cols-2"
-            title="— Consulting"
-            :items="[
-              { headline: 'Architecture Planning', copy: 'We can help from brainstorming phase to keep your project on track and avoid production bottlenecks later on.' },
-              { headline: 'Performance Review', copy: 'We may hunt and target existing performance issues. Your users don\'t want to wait and you shouldn\'t make them do.' },
-              { headline: 'Accessibility Review', copy: 'You might be missing out business opportunities by leaving some of your audience behind. We can help you catch up with them.' },
-            ]" />
-        </Hydrate>
-        <Hydrate when-visible>
-          <Taas class="services__taas" />
-        </Hydrate>
-      </div>
+    <div class="services c-bg1">
+      <Hydrate ssr-only>
+        <PageHeader
+          layout="2"
+          tag1="Services"
+          tag2="What We Offer"
+          :headline="`We plan, build and deliver \ndigital experiences.`" />
+      </Hydrate>
+      <Hydrate ssr-only>
+        <FeatureList
+          title="— Development"
+          :items="[
+            { headline: 'Frontend', copy: 'Pixel perfect design implementation, responsiveness, micro-interactions that catch attention. We do fronts that sell.' },
+            { headline: 'Backend', copy: 'Security for your data, optimized resources usage, boosted assets delivery. We do backs that last.' },
+            { headline: 'Performance', copy: 'Snappy mobile and desktop experience, on time with the first paint and interactivity. Page speed that leaves competitors behind.' },
+            { headline: 'Accessibility', copy: 'Keyboard navigation, screen readers, content contrast and text scaling. Leave no clients behind.' },
+            { headline: 'CMS Integrations', copy: 'Wordpress, Craft or something niche. Headless integration or backend templating. Content is king, our clients are emperors.' },
+            { headline: 'Native Apps', copy: 'Vue Native or React Native. Common stack for common use. We can get native native if that\'s your goal.' },
+          ]" />
+      </Hydrate>
+      <Hydrate ssr-only>
+        <FeatureList
+          title="— Consulting"
+          :items="[
+            { headline: 'Architecture Planning', copy: 'We can help from brainstorming phase to keep your project on track and avoid production bottlenecks later on.' },
+            { headline: 'Performance Review', copy: 'We may hunt and target existing performance issues. Your users don\'t want to wait and you shouldn\'t make them do.' },
+            { headline: 'Accessibility Review', copy: 'You might be missing out business opportunities by leaving some of your audience behind. We can help you catch up with them.' },
+          ]" />
+      </Hydrate>
       <Hydrate when-visible>
-       <Footer />
+        <Taas />
+      </Hydrate>
+      <Hydrate when-visible>
+        <Footer />
       </Hydrate>
     </div>
 </template>
@@ -73,17 +68,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.services__header { margin-top: 300px }
-.services__cols-1 { margin-top: 200px }
-.services__cols-2 { margin-top: 100px }
-.services__taas { margin-top: 150px }
-
-@media(max-width: 1024px) {
-  .services__header { margin-top: 0; padding-top: 100px; padding-bottom: 150px;  }
-  .services__cols-1 { margin-top: 0; }
-  .services__cols-2 { margin-top: 100px }
-  .services__taas { margin-top: 0 }
-}
-</style>

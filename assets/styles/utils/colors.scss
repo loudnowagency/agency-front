@@ -1,19 +1,23 @@
 .c-ta { color: $fill-a; }
+.c-tb { color: $fill-b; }
 .c-t1 { color: $fill-1; }
+.c-t1i { color: $fill-1-light; }
 .c-t2 { color: $fill-2; }
 
+.c-bga { background-color: $fill-a; }
+.c-bgb { background-color: $fill-b; }
 .c-bg1 { background-color: $bg-1; }
 .c-bg2 { background-color: $bg-2; }
+.c-bg3 { background-color: $bg-3; }
 
 .c-border { border-color: $border-color; }
-.c-background-blue { background-color: $fill-a; }
 
 .theme-light {
-  .c-ta { color: $fill-a; }
   .c-t1 { color: $fill-1-light; }
   .c-t2 { color: $fill-2-light; }
 
   .c-bg1 { background-color: $bg-1-light; }
   .c-bg2 { background-color: $bg-2-light; }
+
   .c-border { border-color: $border-color-light; }
 }

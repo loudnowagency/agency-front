@@ -1,60 +1,36 @@
 <template>
-  <div class="section c-bg2">
+  <div class="testimonials c-bg1">
     <div class="container">
-
-      <div class="grid">
-        <h3 class="logo-wall__headline">Partners</h3>
-        <div class="logo-wall__copy">
-          <strong>— We worked with</strong>
-          <p class="c-t2">Our favorite agencies are our friends. We help them to achieve their goals; they help us to stay sharp.</p>
-        </div>
-        <div class="logo-wall__logos">
-          <div class="grid">
-            <a
-              v-for="({ logo }, i) in testimonials"
-              class="logo"
-              :class="{'-active': i === localActive}"
-              :key="`logo-${i}`"
-              @click="setActive(i)">
-              <span class="logo-inner">
-                <InlineSvg :src="`/logos/${logo}`" />
-              </span>
-            </a>
-            <a></a>
-          </div>
-        </div>
+      <div class="testimonials__header grid">
+        <h3 class="testimonials__title">Business Partners</h3>
+        <span class="testimonials__meta">What They Say About us</span>
+        <div class="grid__break"></div>
+        <p class="testimonials__copy c-t2">
+          Our favorite agencies are our friends. <br>
+          We help them to achieve their goals; they help us to stay sharp.
+        </p>
       </div>
-
-      <div
-        v-for="(item, i) in testimonials"
-        :key="`item-${i}`">
+      <div class="testimonials__slider">
         <div
-          v-if="i === localActive"
-          class="testimonial grid">
-          <div class="testimonial__img-wrap">
-            <Picture
-              class="testimonial__img"
-              :src="`/images/${item.picture}`" />
-          </div>
-
+          class="testimonial c-bg3"
+          v-for="(testimonial, i) in testimonials"
+          :key="`testimonial-${i}`">
+          <Picture
+            class="testimonial__picture"
+            :src="`/images/${testimonial.picture}`" />
           <div class="testimonial__body">
-            <div class="testimonial__meta">
-              <h5>Author</h5>
-              <p class="c-t2">
-                <span>{{ item.author }},</span> <br>
-                <span>{{ item.role }}</span>
-              </p>
+            <div class="testimonial__headline">
+              {{ testimonial.author }},
+              <span class="testimonial__role c-t2">{{ testimonial.role }}</span>
             </div>
-
-            <strong class="testimonial__tag">
-              — They Say
-            </strong>
-
+            <Logo
+              class="testimonial__logo"
+              :src="`/logos/${testimonial.logo}`" />
             <div class="testimonial__copy">
-              <strong class="t2">{{ item.headline }}</strong>
+              <header class="testimonial__headline t2">{{ testimonial.headline }}</header>
               <p
-                v-for="(text, i) in item.copy"
-                :key="`testimonial-copy__${i}`"
+                v-for="(text, j) in testimonial.copy"
+                :key="`text-${j}`"
                 class="c-t2">
                 {{ text }}
               </p>
@@ -62,28 +38,41 @@
           </div>
         </div>
       </div>
+      <div class="testimonials__nav">
+        <a
+          class="testimonials__prev"
+          @click="slider.prev()">
+          <InlineSvg src="/icons/arrow.svg" />
+        </a>
+        <a
+          class="testimonials__next"
+          @click="slider.next()">
+          <InlineSvg src="/icons/arrow.svg" />
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Siema from 'siema'
 import InlineSvg from 'vue-inline-svg'
-import Corners from '@/components/ui/Corners'
 import Picture from '@/components/ui/Picture'
+import Logo from '@/components/ui/Logo'
 
 export default {
   name: 'Testimonials',
   components: {
-    Corners,
-    Picture,
     InlineSvg,
+    Picture,
+    Logo,
   },
   props: {
     active: Number,
   },
   data () {
     return {
-      localActive: null,
+      slider: null,
       scrollanim: {
         name: 'trans-el-from-bottom-fade',
         delay: 200,
@@ -99,7 +88,7 @@ export default {
           copy: [
             'They did a great job at creating stellar front-end based on custom designs, while also taking it the extra mile to provide feedback to the designer and bringing their own improvement to the table with polish, animations and over-all what you’d expect from someone with great UX skills and experience.',
             'One important differentiator is the ownership from the beginning until the end, and the care for detail which comes with them by default.',
-            'I’m sure there will only be success stories coming out of the projects they’ll be handling.',
+            // 'I’m sure there will only be success stories coming out of the projects they’ll be handling.',
           ],
         },
         {
@@ -110,19 +99,19 @@ export default {
           headline: 'We would highly recommend them as an experienced and professional development shop.',
           copy: [
             'We began working with Loud Now three years ago and they quickly became an integral part of our vendor network due to their lightning fast efficiency, excellent communication, and best in class development. We have collaborated on a number of projects, ranging from end to end Wordpress and CraftCMS websites, to collaborating as part of a larger team on custom built software.',
-            'We have continued working with Loud Now team to this day and foresee this long term relationship continuing into the future. We would highly recommend them as an experienced and professional development shop as well as an excellent outsourced extension of an agency\'s in-house teams.',
+            // 'We have continued working with Loud Now team to this day and foresee this long term relationship continuing into the future. We would highly recommend them as an experienced and professional development shop as well as an excellent outsourced extension of an agency\'s in-house teams.',
           ],
         },
         {
           logo: 'artbees.svg',
           picture: 'testimonial-bob.jpg',
-          author: 'Bob Ulusoy',
-          role: 'Chief Product Officer',
+          author: 'Babak Azimzadeh',
+          role: 'Chief Technology Officer',
           headline: 'Artbees recommends Loud Now as an expert in its field, and we are looking forward to working with them in the near future.',
           copy: [
             'My experience with Loud Now dates back to 2016 when we had some major challenges with our flagship WordPress theme called Jupiter. Making changes for a WP theme that powered hundreds of thousands of sites was a daunting task. But they have made several fundamental changes to our product.',
             'The outcome was extremely rewarding: many of our clients reported a more than 50% improvement in speed and performance.',
-            'Loud Now developers were highly integrated into our team as if they were part of it. They delivered everything as planned, and we were so pleased with the collaboration that we even extended it for a long time.',
+            // 'Loud Now developers were highly integrated into our team as if they were part of it. They delivered everything as planned, and we were so pleased with the collaboration that we even extended it for a long time.',
           ],
         },
       ],
@@ -130,181 +119,122 @@ export default {
   },
   mounted () {
     this.setActive(this.active)
+    this.slider = new Siema({
+      selector: this.$el.querySelector('.testimonials__slider'),
+      duration: 500,
+    })
   },
   methods: {
     setActive (id) {
-      this.localActive = id
+      this.testimonials = [
+        ...this.testimonials.slice(id),
+        ...this.testimonials.slice(0, id),
+      ]
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.section {
-  padding: 150px 0;
-  position: relative;
+.grid__break { width: 100%; }
+
+.testimonials {
+  padding: 120px 0;
 }
 
-.corner {
-  position: absolute;
-  pointer-events: none;
-  border-color: currentColor;
-  border-style: solid;
-  border-width: 0;
-  width: 10px;
-  height: 10px;
-
-  &.-lines { top: 0; left: 0; border-left-width: 1px; border-top-width: 1px; width: 50%; height: 50%; opacity: .2; }
-  &.-tl { top: 0; left: 0; border-left-width: 1px; border-top-width: 1px; }
-  &.-tr { top: 0; right: 0; border-right-width: 1px; border-top-width: 1px; }
+.testimonials__meta {
+  font-family: $font-tech;
+  margin-left: auto;
 }
 
-.logo-wall__headline {
-  width: col(5);
-  margin-right: push(1);
+.testimonials__copy {
+  margin-top: 20px;
 }
 
-.logo-wall__copy {
-  width: col(4);
-  margin-left: push(1);
-
-  p { margin-top: 10px; }
-}
-
-.logo-wall__logos {
-  margin-top: 100px;
-  width: col(12);
-}
-
-.logo {
-  padding-right: 50px;
-  width: col(4);
-  display: flex;
-  align-items: center;
-  opacity: .5;
-  transition: opacity .2s $ease;
-
-  &:hover,
-  &.-active { opacity: 1; }
-
-  &:first-of-type { width: col(3); }
-
-  svg {
-    height: 30px;
-    max-width: 100%;
-  }
-}
-
-.logo-inner {
-  position: relative;
-  display: inline-block;
-  padding: 10px 0;
-  max-width: 60%;
-
-  .-active & {
-    @include underline(2);
-    @include underline-anim-in;
-  }
+.testimonials__slider {
+  margin-top: 120px;
 }
 
 .testimonial {
-  align-items: flex-start;
-  margin-top: 150px;
-}
-
-.testimonial__img-wrap {
-  width: col(6);
   display: flex;
+  align-items: center;
 }
 
-.testimonial__img {
-  width: 100%;
+.testimonial__picture {
+  width: 340px;
+  height: 500px;
   object-fit: cover;
 }
 
 .testimonial__body {
-  display: flex;
-  flex-wrap: wrap;
-  width: col(5);
-  margin-left: push(1);
+  padding: 45px;
+  padding-left: 70px;
 }
 
-.testimonial__meta {
-  width: col(6);
-
-  p { margin-top: 30px; }
-}
-
-.testimonial__tag {
-  width: col(6);
-  text-align: right;
-  line-height: 1;
+.testimonial__logo {
+  margin-top: 10px;
 }
 
 .testimonial__copy {
-  margin-top: 100px;
-  width: col(12);
+  margin-top: 45px;
 
-  strong { display: block; }
-  p { margin-top: 30px; }
+  header { margin-bottom: 20px; }
+  p { margin-top: 10px; }
 }
 
+.testimonial {
+  margin-left: 1px;
+}
 
-@media(max-width: 1024px) {
-  .section {
-    padding: 100px 0;
+.testimonials__nav {
+  clear: both;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.testimonials__prev,
+.testimonials__next {
+  padding: 20px;
+}
+
+.testimonials__prev {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 1024px) {
+  .testimonials { padding: 80px 0; }
+
+  .testimonials__meta {
+    width: 100%;
+    order: -1;
+    margin-bottom: 50px;
   }
 
-  .logo-wall__headline {
-    width: col(8);
-  }
-
-  .logo-wall__copy {
-    margin-top: 50px;
-    margin-left: 0;
-    width: col(12);
-  }
-
-  .logo {
-    margin-bottom: 20px;
-    padding-right: 30px;
-    width: col(12) !important;
-  }
-
-  .logo-inner {
-    max-width: 100%;;
+  .testimonials__slider {
+    margin-top: 70px;
   }
 
   .testimonial {
-    margin-top: 50px;
-  }
-
-  .testimonial__img-wrap {
-    width: col(12);
-  }
-
-  .testimonial__img {
-    width: 480px;
-    height: 520px;
+    margin-left: 0;
   }
 
   .testimonial__body {
-    margin-top: 50px;
-    margin-left: 0;
-    width: col(12);
+    padding: 30px;
   }
 
-  .testimonial__meta {
-    width: col(12);
+  .testimonial__role {
+    display: block;
+    font-size: 12px;
   }
 
-  .testimonial__tag {
+  .testimonial__headline  {
+    font-size: 17px;
+  }
+
+  .testimonial__picture {
     display: none;
-  }
-
-  .testimonial__copy {
-    width: col(12);
-    margin-top: 50px;
   }
 }
 </style>

@@ -1,48 +1,43 @@
 <template>
-  <div class="section">
+  <div class="container">
     <div
       class="case-study-card"
-      :class="`-${theme}`">
-      <div class="section">
-        <Picture
-          class="case-study-card__bg lazyload"
-          :src="`/images/${bg}`" />
-        <div class="case-study-card__container container">
-          <div class="case-study-card__grid grid">
-            <span>Client</span>
-            <InlineSvg
-              class="case-study-card__client-logo"
-              :src="`/logos/${clientLogo}`" />
-          </div>
-          <InlineSvg
-            class="case-study-card__project-logo"
-            :src="`/logos/${projectLogo}`" />
-          <Button
-            v-if="buttonText"
-            class="case-study-card__button"
-            :class="`-${theme}`">
-            {{ buttonText }}
-          </Button>
-        </div>
-      </div>
+      :class="{'-masthead': isMasthead}">
+      <Picture
+        class="case-study-card__bg"
+        :src="`/images/${bg}`" />
+        <Logo
+          :src="projectLogo"
+          :meta="`Client: ${clientName}`"
+          :height="30" />
+        <p class="case-study-card__title">
+          {{ title }}
+        </p>
+        <Button
+          v-if="buttonText"
+          class="case-study-card__button"
+          type="secondary">
+          {{ buttonText }}
+        </Button>
     </div>
   </div>
 </template>
 
 <script>
-import InlineSvg from 'vue-inline-svg'
 import Button from '@/components/ui/Button'
 import Picture from '@/components/ui/Picture'
+import Logo from '@/components/ui/Logo'
 
 export default {
   name: 'CaseStudyCard',
-  components: { Button, Picture, InlineSvg },
+  components: { Button, Picture, Logo },
   props: {
     bg: String,
-    clientLogo: String,
+    clientName: String,
     projectLogo: String,
-    theme: String,
+    title: String,
     buttonText: String,
+    isMasthead: Boolean,
   },
 }
 </script>
@@ -52,44 +47,13 @@ export default {
   position: relative;
   z-index: 0;
   display: flex;
-  max-height: 100vh;
-  height: 700px;
-  width: 100%;
-
-  &.-dark { color: $fill-1; }
-  &.-light { color: $fill-1-light; }
-}
-
-.case-study-card__container {
-  position: relative;
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
-  padding-top: 90px;
-  padding-bottom: 90px;
-  transition: transform .7s ease, opacity .7s ease;
-}
-
-.case-study-card__grid {
-  align-items: center;
-  flex-wrap: nowrap;
-  text-transform: uppercase;
-}
-
-.case-study-card__client-logo {
-  height: 30px;
-  margin-left: 20px;
-}
-
-.case-study-card__project-logo {
-  max-width: 450px;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.case-study-card__button {
-  margin-top: 10px;
+  justify-content: center;
+  max-height: 100vh;
+  min-height: 500px;
+  width: 100%;
+  padding: 30px 60px;
 }
 
 .case-study-card__bg {
@@ -102,25 +66,33 @@ export default {
   object-fit: cover;
 }
 
+.case-study-card__title {
+  max-width: 300px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+  // text-transform: uppercase;
+  .-masthead & {
+    font-size: 50px;
+    max-width: 450px;
+  }
+}
+
+.case-study-card__button {
+  margin-top: 10px;
+}
+
 @media(max-width: 1024px) {
   .case-study-card {
-    height: 350px;
+    min-height: 350px;
+    padding: 30px;
   }
 
-  .case-study-card__container {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .case-study-card__grid {
-    font-size: 10px;
-  }
-  .case-study-card__client-logo {
-    height: 20px;
-  }
-  .case-study-card__project-logo {
-    margin-top: 50px;
-    width: 55%;
-    max-width: 215px;
+  .case-study-card__title {
+    font-size: 20px;
+    max-width: 200px;
   }
 }
 </style>

@@ -16,6 +16,7 @@ export default {
   },
   computed: {
     cdnSrc() {
+      if (process.env.NODE_ENV !== 'production') return this.src
       const cdnUrl = 'https://ankkxsjjn.cloudimg.io/v7'
       const prodHost = '/loudnow.agency'
       const options = '?force_format=webp'
