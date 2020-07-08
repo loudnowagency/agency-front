@@ -9,8 +9,8 @@
           :headline="`Join our network and \nlevel up your career +`">
           <PageIntro
             :leftCopy="[
-              'Loud Now Agency is all about partenrship. We find great clients and great developers and stick together to create great things.',
-              'We are young and energetic shop that converts freedom into creativity.',
+              'Loud Now Agency is all about partnership. We find great clients and great developers and stick together to create great things.',
+              'We are a young and energetic shop that converts freedom into creativity.',
             ]"
             :rightCopy="[
               'Full Remote Company.',
@@ -29,7 +29,7 @@
           :items="[
             { headline: 'Remote', copy: 'We are remote first company and highly oriented on an async communication. We\'re very active on Slack and are always there to give you some help or a hug.' },
             { headline: 'Tech', copy: 'Our technology stack is in constant move. We love to experiment to refine our ListBoldes and tools. This is always a bit challenging and pushes us to learn and grow.' },
-            { headline: 'Equal', copy: 'Our hierarchy is as flat as it can get. The company leadership are active senior developers doing their daily coding work along you. We care for everyone.' },
+            { headline: 'Equal', copy: 'Our hierarchy is as flat as it can get. The company leadership are active senior developers doing their daily coding work along with you. We care for everyone.' },
           ]" />
       </Hydrate>
       <Hydrate ssr-only>
@@ -49,9 +49,9 @@
               title: 'React <br>Developer',
               content: `
                 <p>
-                  We're currently looking for a talented React Developer to join an exciting blockchain project.
-                  You will work closely with our client from Uinited States to develop frontend part of a blockchain based freelancers ecosystem.
-                  There are already a blockchain and a react developer onboarded. Your role is envisioned as an export who will help to
+                  We're currently looking for a talented React Developer to join an exciting blockchain project. You will work closely
+                  with our client from the United States to develop the frontend part of a blockchain based freelancer ecosystem.
+                  There is already a blockchain and a react developer onboarded. Your role is envisioned as an expert who will help to
                   establish the product's architecture, develop features and support growth.
                 </p>
                 <strong class=c-t1>About the job</strong>
@@ -74,7 +74,7 @@
         <CTA
           class="careers__cta"
           title="Not Listed but talented?"
-          copy="No worries. We'd like to meet you anyway and create opportunity to work together. Send us an email with some brief info about you, what you do and what are you looking for. We'll be happy to pick a converstaion."
+          copy="No worries. We'd like to meet you anyway and create an opportunity to work together. Send us an email with some brief info about you, what you do and what you are looking for. We'll be happy to pick a conversation."
           buttonText="Email Us" />
       </Hydrate>
       <Hydrate when-visible>
