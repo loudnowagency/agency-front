@@ -8,7 +8,8 @@
         :src="`/images/${bg}`" />
         <Logo
           :src="projectLogo"
-          :meta="`Client: ${clientName}`" />
+          :meta="`Client: ${clientName}`"
+          :height="30" />
         <p class="case-study-card__title">
           {{ title }}
         </p>

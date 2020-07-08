@@ -32,7 +32,7 @@
         <Taas />
       </Hydrate>
       <Hydrate when-visible>
-       <Footer />
+        <Footer />
       </Hydrate>
     </div>
 </template>

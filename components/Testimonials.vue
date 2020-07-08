@@ -88,7 +88,7 @@ export default {
           copy: [
             'They did a great job at creating stellar front-end based on custom designs, while also taking it the extra mile to provide feedback to the designer and bringing their own improvement to the table with polish, animations and over-all what you’d expect from someone with great UX skills and experience.',
             'One important differentiator is the ownership from the beginning until the end, and the care for detail which comes with them by default.',
-            'I’m sure there will only be success stories coming out of the projects they’ll be handling.',
+            // 'I’m sure there will only be success stories coming out of the projects they’ll be handling.',
           ],
         },
         {
@@ -99,7 +99,7 @@ export default {
           headline: 'We would highly recommend them as an experienced and professional development shop.',
           copy: [
             'We began working with Loud Now three years ago and they quickly became an integral part of our vendor network due to their lightning fast efficiency, excellent communication, and best in class development. We have collaborated on a number of projects, ranging from end to end Wordpress and CraftCMS websites, to collaborating as part of a larger team on custom built software.',
-            'We have continued working with Loud Now team to this day and foresee this long term relationship continuing into the future. We would highly recommend them as an experienced and professional development shop as well as an excellent outsourced extension of an agency\'s in-house teams.',
+            // 'We have continued working with Loud Now team to this day and foresee this long term relationship continuing into the future. We would highly recommend them as an experienced and professional development shop as well as an excellent outsourced extension of an agency\'s in-house teams.',
           ],
         },
         {
@@ -111,7 +111,7 @@ export default {
           copy: [
             'My experience with Loud Now dates back to 2016 when we had some major challenges with our flagship WordPress theme called Jupiter. Making changes for a WP theme that powered hundreds of thousands of sites was a daunting task. But they have made several fundamental changes to our product.',
             'The outcome was extremely rewarding: many of our clients reported a more than 50% improvement in speed and performance.',
-            'Loud Now developers were highly integrated into our team as if they were part of it. They delivered everything as planned, and we were so pleased with the collaboration that we even extended it for a long time.',
+            // 'Loud Now developers were highly integrated into our team as if they were part of it. They delivered everything as planned, and we were so pleased with the collaboration that we even extended it for a long time.',
           ],
         },
       ],

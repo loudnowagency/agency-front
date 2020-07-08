@@ -25,7 +25,11 @@
           shape: 'circle',
         },
       ]" />
-    <CTA class="taas__cta "/>
+    <CTA
+      class="taas__cta"
+      title="No time to hire?"
+      copy="Have you ever missed a deadline, turned down a client due to lack of development resources or got lost in workload? We're here to help. Our studio plays supporting role in digital projects' planing, execution and delivery."
+      buttonText="Work With Us" />
   </div>
 </template>
 

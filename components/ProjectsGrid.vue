@@ -58,7 +58,7 @@ export default {
 
 .projects-list__item {
   width: 25%;
-  margin-top: 30px;
+  margin-top: 70px;
 }
 
 @media (max-width: 1024px) {

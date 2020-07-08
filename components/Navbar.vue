@@ -84,6 +84,7 @@ export default {
         { to: '/studies', text: 'Studies' },
         { to: '/services', text: 'Services' },
         { to: '/approach', text: 'Approach' },
+        { to: '/careers', text: 'Careers' },
       ],
     }
   },

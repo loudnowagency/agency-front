@@ -1,8 +1,7 @@
 <template>
-  <div class="approach c-bg1">
+  <div class="c-bg1">
     <Hydrate ssr-only>
       <PageHeader
-        class="approach__header"
         layout="3"
         tag1="Approach"
         tag2="How We Do It"
@@ -81,8 +80,4 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .page-header { max-height: 100vh !important;}
-
-@media(max-width: 1024px) {
-  // /deep/ .page-header { max-height: auto !important;}
-}
 </style>

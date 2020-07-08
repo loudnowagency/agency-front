@@ -3,10 +3,10 @@
     <div class="container">
       <div class="cta__grid grid c-bga c-t1i">
         <h3 class="cta__title">
-          No time to hire?
+          {{ title }}
         </h3>
         <p class="cta__copy">
-          Have you ever missed a deadline, turned down a client due to lack of development resources or got lost in workload? We're here to help. Our studio plays supporting role in digital projects' planing, execution and delivery.
+          {{ copy }}
         </p>
         <a
           class="cta__button"
@@ -14,7 +14,7 @@
           target="_blank">
           <Button
             type="secondary">
-            Work With Us
+            {{ buttonText }}
           </Button>
         </a>
       </div>
@@ -28,6 +28,11 @@ import Button from '@/components/ui/Button'
 export default {
   name: 'CTA',
   components: { Button },
+  props: {
+    title: String,
+    copy: String,
+    buttonText: String,
+  },
 }
 </script>
 
