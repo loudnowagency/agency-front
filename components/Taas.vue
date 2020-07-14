@@ -52,7 +52,7 @@ export default {
 /deep/ .page-header { height: auto !important; padding-top: 0 !important;}
 .taas { padding: 120px 0; }
 .taas__cols { margin-top: 120px; }
-.taas__cta { margin-top: 120px; }
+.taas__cta { margin-top: 120px; margin-bottom: 60px; }
 
 @media(max-width: 1024px) {
   /deep/ .page-header { height: auto !important; }

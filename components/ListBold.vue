@@ -39,10 +39,11 @@ export default {
 <style lang="scss">
 .list-bold__copy {
   strong { display: block; }
-  p { margin-bottom: 20px; }
+  p { margin-bottom: 30px; }
   ul {
     list-style: disc inside;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
 }
 </style>
