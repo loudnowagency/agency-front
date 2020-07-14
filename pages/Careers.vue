@@ -13,7 +13,7 @@
               'We are a young and energetic shop that converts freedom into creativity.',
             ]"
             :rightCopy="[
-              'Full Remote Company.',
+              'Fully Remote Company.',
               'We ditched offices before it was trendy. At Loud Now you can work from anywhere and enjoy your life.',
             ]" />
         </PageHeader>
@@ -27,9 +27,9 @@
         <FeatureList
           title="— Culture"
           :items="[
-            { headline: 'Remote', copy: 'We are remote first company and highly oriented on an async communication. We\'re very active on Slack and are always there to give you some help or a hug.' },
-            { headline: 'Tech', copy: 'Our technology stack is in constant move. We love to experiment to refine our ListBoldes and tools. This is always a bit challenging and pushes us to learn and grow.' },
-            { headline: 'Equal', copy: 'Our hierarchy is as flat as it can get. The company leadership are active senior developers doing their daily coding work along with you. We care for everyone.' },
+            { headline: 'Remote', copy: 'We are a remote first company and highly oriented on async communication. We\'re very active on Slack and always there to give you some help or even just a hug.' },
+            { headline: 'Tech', copy: 'Our technology stack is in constant motion. We love to experiment to refine our tech stack and tools. This is always a bit challenging and pushes us to learn and grow.' },
+            { headline: 'Equal', copy: 'Our hierarchy is as flat as it can get. The company leadership are active senior developers, doing their daily coding work along with you. We care for everyone.' },
           ]" />
       </Hydrate>
       <Hydrate ssr-only>
@@ -52,7 +52,7 @@
                   We're currently looking for a talented React Developer to join an exciting blockchain project. You will work closely
                   with our client from the United States to develop the frontend part of a blockchain based freelancer ecosystem.
                   There is already a blockchain and a react developer onboarded. Your role is envisioned as an expert who will help to
-                  establish the product's architecture, develop features and support growth.
+                  establish the product's architecture, develop features, and support growth.
                 </p>
                 <strong class=c-t1>About the job</strong>
                 <ul>
@@ -74,7 +74,7 @@
         <CTA
           class="careers__cta"
           title="Not Listed but talented?"
-          copy="No worries. We'd like to meet you anyway and create an opportunity to work together. Send us an email with some brief info about you, what you do and what you are looking for. We'll be happy to pick a conversation."
+          copy="No worries. We'd like to meet you anyway and create an opportunity to work together. Send us an email with some brief info about you, what you do and what you are looking for. We'll be happy to have a conversation."
           buttonText="Email Us" />
       </Hydrate>
       <Hydrate when-visible>
@@ -136,6 +136,6 @@ export default {
 }
 
 .careers__cta {
-  margin-bottom: 120px;
+  margin-bottom: 180px;
 }
 </style>

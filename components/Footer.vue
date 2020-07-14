@@ -4,9 +4,14 @@
       <div class="grid">
         <div class="footer__info -i1">
           <h5>Office</h5>
-          <p class="c-t2 ">
+          <!-- <p class="c-t2 ">
             Grzybowska 62 <br>
             Warsaw, 00-855 <br>
+            Poland
+          </p> -->
+          <p class="c-t2 ">
+            Hallera 10 <br>
+            Krosno, 38-400 <br>
             Poland
           </p>
         </div>
