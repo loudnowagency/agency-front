@@ -117,8 +117,10 @@ export default {
       ],
     }
   },
-  mounted () {
+  created () {
     this.setActive(this.active)
+  },
+  mounted () {
     this.slider = new Siema({
       selector: this.$el.querySelector('.testimonials__slider'),
       duration: 500,
