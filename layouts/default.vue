@@ -1,6 +1,7 @@
 <template>
   <div :class="`theme-${theme}`">
     <div class="layout c-bg1 c-t1 t4">
+      <CookieConsent v-if="isCookieConsentOpen" />
       <Navbar class="layout__navbar" />
       <div
         class="layout__main"
@@ -12,14 +13,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Navbar from '@/components/Navbar'
+import CookieConsent from '@/components/CookieConsent'
 
 export default {
   name: 'Layout',
-  components: { Navbar },
+  components: { Navbar, CookieConsent },
   computed: {
-    ...mapState('ui', ['theme', 'isNavOpen']),
+    ...mapState('ui', ['theme', 'isNavOpen', 'isCookieConsentOpen']),
+  },
+  mounted () {
+    this.checkCookie()
   },
   watch: {
     isNavOpen () {
@@ -30,6 +35,9 @@ export default {
         body.style.removeProperty('overflow')
       }
     },
+  },
+  methods: {
+    ...mapActions('ui', ['checkCookie'])
   }
 }
 </script>

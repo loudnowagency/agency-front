@@ -1,6 +1,6 @@
 {
   "name": "loud-now-agency-homepage",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Loud Now Agency Site - https://loudnow.agency",
   "author": "Loud Now Agency <hi@loudnow.agency>",
   "private": true,
@@ -19,6 +19,7 @@
     "@znck/prop-types": "^0.6.3",
     "lazy-hydration": "^1.0.4",
     "lazysizes": "^5.2.2",
+    "local-storage": "^2.0.0",
     "lodash": "^4.17.15",
     "nuxt": "^2.13.2",
     "popmotion": "^8.7.3",
