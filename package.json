@@ -20,7 +20,7 @@
     "lazy-hydration": "^1.0.4",
     "lazysizes": "^5.2.2",
     "local-storage": "^2.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "nuxt": "^2.13.2",
     "popmotion": "^8.7.3",
     "siema": "^1.5.1",
